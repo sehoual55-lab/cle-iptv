@@ -17,7 +17,7 @@
      Tant que cette adresse est vide, le formulaire affiche
      simplement le message de confirmation sans rien enregistrer.
      ============================================================ */
-  var ORDER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5L3ncryKxH0fteMdHHBdcYL5earAnyzvdUg_atxu6Y14B2Hh9YWN89qejfkoo5KAj/exec';
+  var ORDER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxTQpbZTeRL7a3c-0CIbZYCNRIRO73Iz6IN0GSvCPdNOKp36IwBhtpjv3jAoF4dptZ3/exec';
   var ORDER_TOKEN    = 'cle-iptv-2026';   /* doit correspondre à TOKEN dans le script Google */
   var ORDER_PHONE    = '+33 6 12 34 56 78';
 

@@ -2,53 +2,27 @@
   CLÉ IPTV — cle-iptv.store — site complet (13 pages)
 ================================================================
 
-  >>> URGENT : VOTRE SCRIPT GOOGLE N'EST PAS PUBLIC <<<
+CE QUI A CHANGÉ DANS CETTE VERSION
+----------------------------------
+  - assets/app.js pointe désormais vers votre NOUVEAU déploiement
+    Google (celui réglé sur « Anyone ») :
+    .../AKfycbxTQpbZTeRL7a3c-0CIbZYCNRIRO73Iz6IN0GSv.../exec
+  - Numéro de version des fichiers : ?v=7
 
-  L'adresse de votre script :
-  https://script.google.com/macros/s/AKfycbw5L3.../exec
-  renvoie vers une page de connexion Google. Le déploiement n'est
-  donc PAS réglé sur « Tout le monde ».
-  Tant que ce n'est pas corrigé, AUCUNE commande ne vous parviendra.
-
-  Correction (2 minutes) :
-    1. Feuille > Extensions > Apps Script
-    2. En haut à droite : Déployer > Gérer les déploiements
-    3. Icône crayon (Modifier)
-    4. « Qui a accès »  ->  TOUT LE MONDE
-       (pas « Moi uniquement », pas « Utilisateurs connectés »)
-    5. Version : « Nouvelle version », puis Déployer
-    6. Si l'adresse /exec change, remplacez ORDER_ENDPOINT dans
-       assets/app.js
-
-  Vérification : ouvrez l'adresse /exec en navigation privée.
-  Vous devez voir {"ok":true...} et NON un écran de connexion.
+  APRÈS L'UPLOAD, PASSEZ UNE COMMANDE DE TEST SUR LE SITE
+  et vérifiez qu'une ligne apparaît dans la feuille et qu'un
+  e-mail arrive. C'est le seul test qui compte.
 
 
-NOUVEAU : E-MAIL DE COMMANDE AVEC BOUTON WHATSAPP
--------------------------------------------------
-  apps-script.gs a été mis à jour : l'alerte que vous recevez est
-  maintenant mise en forme (tableau de la commande) avec quatre
-  boutons — WhatsApp, Appeler, Répondre par e-mail, Ouvrir la
-  feuille. Le client reçoit lui aussi un accusé de réception
-  présenté de la même façon.
+SI LA COMMANDE NE PASSE TOUJOURS PAS
+------------------------------------
+  1. Ouvrez le site, faites F12 > onglet « Console »
+  2. Passez une commande de test
+  3. Notez le message d'erreur rouge qui apparaît
 
-  POUR EN PROFITER, RECOPIEZ apps-script.gs DANS L'ÉDITEUR
-  APPS SCRIPT (remplacez tout l'ancien contenu), enregistrez,
-  puis Déployer > Gérer les déploiements > crayon >
-  Version : Nouvelle version > Déployer.
-
-  Le bouton WhatsApp compose le numéro au format international à
-  partir de l'indicatif choisi par le client, et pré-remplit un
-  message avec son nom et sa formule.
-
-
-OÙ METTRE LE SITE EN LIGNE
---------------------------
-  Vercel      -> lisez VERCEL.txt (vercel.json est prêt)
-  Namecheap   -> section « cPanel » plus bas (.htaccess est prêt)
-
-  Les deux configurations cohabitent : chaque hébergeur ignore
-  celle de l'autre.
+  Vérifiez aussi que l'ancien déploiement (AKfycbw5L3ncry...)
+  est bien archivé dans Déployer > Gérer les déploiements, pour
+  éviter toute confusion entre les deux.
 
 
 ADRESSES DU SITE
@@ -62,22 +36,11 @@ ADRESSES DU SITE
   /contact                     Contact
   /mentions-legales  /confidentialite  /conditions-generales
 
-  Les adresses en .html redirigent vers les adresses propres.
 
-
-FICHIERS
---------
-  13 fichiers .html
-  assets/style.css     Style commun à toutes les pages
-  assets/app.js        Script commun (dont l'envoi des commandes)
-  vercel.json          Configuration Vercel
-  .vercelignore        Fichiers à ne pas publier sur Vercel
-  .htaccess            Configuration Apache / Namecheap
-  robots.txt / sitemap.xml
-  apps-script.gs       Script Google Sheets (à coller dans Apps Script)
-  GOOGLE-SHEET.txt     Mode d'emploi de la feuille de commandes
-  VERCEL.txt           Mode d'emploi Vercel
-  LISEZMOI.txt         Ce fichier
+OÙ METTRE LE SITE EN LIGNE
+--------------------------
+  Vercel      -> lisez VERCEL.txt (vercel.json est prêt)
+  Namecheap   -> section cPanel ci-dessous (.htaccess est prêt)
 
 
 MISE EN LIGNE SUR NAMECHEAP (cPanel)
@@ -94,21 +57,31 @@ MISE EN LIGNE SUR NAMECHEAP (cPanel)
 
 CACHE DU NAVIGATEUR
 -------------------
-  Après une mise à jour, une page peut s'afficher avec le nouveau
-  HTML mais l'ancien CSS. Ctrl + F5 (Cmd + Maj + R sur Mac) ou
-  navigation privée.
-
-  Les pages appellent assets/style.css?v=6 et assets/app.js?v=6.
+  Les pages appellent assets/style.css?v=7 et assets/app.js?v=7.
   À CHAQUE modification du CSS ou du JS, incrémentez ce numéro dans
-  les 13 fichiers HTML (Rechercher/Remplacer ?v=6 -> ?v=7).
+  les 13 fichiers HTML (Rechercher/Remplacer ?v=7 -> ?v=8).
+  Sinon vos visiteurs gardent l'ancienne version pendant une semaine.
+
+  Pour vérifier vous-même : Ctrl + F5, ou navigation privée.
+
+
+FICHIERS
+--------
+  13 fichiers .html
+  assets/style.css     Style commun à toutes les pages
+  assets/app.js        Script commun (dont l'envoi des commandes)
+  vercel.json / .vercelignore    Configuration Vercel
+  .htaccess                      Configuration Apache / Namecheap
+  robots.txt / sitemap.xml
+  apps-script.gs       Script Google Sheets (à coller dans Apps Script)
+  GOOGLE-SHEET.txt     Mode d'emploi de la feuille de commandes
+  VERCEL.txt           Mode d'emploi Vercel
+  LISEZMOI.txt         Ce fichier
 
 
 À COMPLÉTER
 -----------
-  1. SCRIPT GOOGLE EN « TOUT LE MONDE »        <-- voir tout en haut
-  2. NOUVELLE VERSION DE apps-script.gs         <-- voir plus haut
-
-  3. NUMÉRO DE TÉLÉPHONE
+  1. NUMÉRO DE TÉLÉPHONE
      +33 6 12 34 56 78 est un exemple, présent dans l'en-tête, le
      pied de page et le bouton d'appel de chaque page.
      Rechercher/Remplacer dans tous les .html :
@@ -117,18 +90,18 @@ CACHE DU NAVIGATEUR
      Pensez aussi à ORDER_PHONE dans assets/app.js et à PHONE dans
      apps-script.gs.
 
-  4. TARIFS (index.html, section TARIFS)
+  2. TARIFS (index.html, section TARIFS)
      data-base   = prix pour UNE connexion
      data-months = nombre TOTAL de mois d'accès, mois offerts compris
      data-discount sur « pricing-grid » = remise par connexion (0.15)
      Les tarifs viennent de votre modèle mais sont en euros :
      vérifiez-les avant de communiquer dessus.
 
-  5. CLÉ API TMDB
+  3. CLÉ API TMDB
      Visible dans assets/app.js, donc publique. Révoquez l'actuelle
      sur votre compte TMDB, créez-en une nouvelle, remplacez TMDB_KEY.
 
-  6. PAGES LÉGALES
+  4. PAGES LÉGALES
      Champs surlignés en jaune à remplacer (raison sociale, SIRET,
      adresse, hébergeur, médiateur de la consommation...).
      Supprimez ensuite le bandeau jaune en haut de chaque page.
@@ -136,7 +109,6 @@ CACHE DU NAVIGATEUR
 
 APRÈS LA MISE EN LIGNE
 ----------------------
-  - Passez une commande de test et vérifiez qu'elle arrive DANS LA
-    FEUILLE et PAR E-MAIL, avec le bouton WhatsApp fonctionnel.
+  - Commande de test : vérifiez la feuille ET l'e-mail
   - Search Console : soumettez https://cle-iptv.store/sitemap.xml
   - Vérifiez chaque page sur téléphone

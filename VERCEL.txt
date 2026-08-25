@@ -2,69 +2,47 @@
   CLÉ IPTV — Mise en ligne sur Vercel
 ================================================================
 
-  Le dossier contient déjà vercel.json : les adresses propres
+  vercel.json est déjà dans le dossier : les adresses propres
   ( /appareils au lieu de /appareils.html ) fonctionnent
   automatiquement, sans rien configurer.
 
-
-MÉTHODE 1 — LIGNE DE COMMANDE (la plus fiable)
-----------------------------------------------
-  1. Installez Node.js depuis https://nodejs.org (version LTS).
-  2. Ouvrez un terminal DANS le dossier décompressé.
-  3. Tapez ces commandes, l'une après l'autre :
-
+MÉTHODE 1 — LIGNE DE COMMANDE
+-----------------------------
+  1. Installez Node.js depuis https://nodejs.org (version LTS)
+  2. Ouvrez un terminal DANS le dossier décompressé
+  3. Tapez :
         npm i -g vercel
         vercel login
         vercel --prod
+  4. Répondez : nom du projet, puis « ./ » pour le dossier.
 
-  4. Répondez aux questions : nom du projet, puis « ./ » pour le
-     dossier, et « no » si l'on vous propose un framework.
-     Vercel vous donne une adresse en .vercel.app.
-
-
-MÉTHODE 2 — VIA GITHUB (idéale si vous modifiez souvent)
---------------------------------------------------------
+MÉTHODE 2 — VIA GITHUB
+----------------------
   1. Créez un dépôt sur https://github.com/new
-  2. Envoyez-y le CONTENU du dossier décompressé
-     (index.html et assets/ doivent être à la racine du dépôt).
-  3. Sur https://vercel.com/new, cliquez « Import Git Repository »
-     et sélectionnez ce dépôt.
-  4. Framework Preset : « Other ». Laissez les commandes de build
-     vides. Cliquez « Deploy ».
+  2. Envoyez-y le CONTENU du dossier (index.html et assets/ à la racine)
+  3. Sur https://vercel.com/new : Import Git Repository
+  4. Framework Preset : « Other », aucune commande de build, Deploy
 
-  Ensuite, chaque modification envoyée sur GitHub met le site à
-  jour automatiquement.
+  Chaque modification envoyée sur GitHub met le site à jour.
 
+BRANCHER cle-iptv.store
+-----------------------
+  1. Vercel : Project > Settings > Domains > Add
+  2. cle-iptv.store  puis  www.cle-iptv.store
+  3. Créez les enregistrements DNS indiqués par Vercel chez
+     Namecheap (Domain List > Manage > Advanced DNS). En général :
+        A      @      76.76.21.21
+        CNAME  www    cname.vercel-dns.com
+     Les valeurs affichées par Vercel priment sur cet exemple.
+  4. HTTPS automatique après propagation.
 
-BRANCHER VOTRE DOMAINE cle-iptv.store
--------------------------------------
-  1. Dans Vercel : Project > Settings > Domains > Add
-  2. Saisissez  cle-iptv.store  puis  www.cle-iptv.store
-  3. Vercel affiche les enregistrements DNS à créer.
-     Chez Namecheap : Domain List > Manage > Advanced DNS.
+  ATTENTION : un domaine ne pointe que vers un seul hébergement.
+  Testez d'abord sur l'adresse .vercel.app.
 
-     En général :
-        Type A     @      76.76.21.21
-        Type CNAME www    cname.vercel-dns.com
-
-     Vérifiez toujours les valeurs affichées par Vercel :
-     elles priment sur cet exemple.
-
-  4. Comptez de quelques minutes à quelques heures de propagation.
-     Le certificat HTTPS est créé automatiquement.
-
-  ATTENTION : un domaine ne peut pointer que vers un seul
-  hébergement. Si le site tourne déjà chez Namecheap, il basculera
-  sur Vercel dès que les DNS seront modifiés. Testez d'abord sur
-  l'adresse .vercel.app.
-
-
-CE QUI CHANGE PAR RAPPORT À NAMECHEAP
--------------------------------------
-  - .htaccess est ignoré par Vercel : vercel.json prend le relais.
-    Gardez les deux fichiers, chacun sert un hébergeur.
-  - .vercelignore empêche la publication des fichiers d'aide
-    (apps-script.gs, GOOGLE-SHEET.txt, LISEZMOI.txt, VERCEL.txt).
-  - Le principe du numéro de version ( ?v=6 ) reste valable :
-    incrémentez-le dans les 13 fichiers HTML à chaque modification
-    du CSS ou du JS.
+DIFFÉRENCES AVEC NAMECHEAP
+--------------------------
+  - .htaccess est ignoré par Vercel ; vercel.json prend le relais.
+    Gardez les deux, chacun sert un hébergeur.
+  - .vercelignore empêche la publication des fichiers d'aide.
+  - Numéro de version ( ?v=7 ) : à incrémenter dans les 13 fichiers
+    HTML à chaque modification du CSS ou du JS.
