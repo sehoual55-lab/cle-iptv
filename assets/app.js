@@ -363,11 +363,14 @@
         return;
       }
 
+      var indicatif = $('#dialcode').value;
       var payload = {
         token:      ORDER_TOKEN,
         nom:        fullname,
         email:      email,
-        telephone:  $('#dialcode').value + ' ' + phone,
+        indicatif:  indicatif,                       /* ex. +212        */
+        numero:     phone,                           /* saisi par le client */
+        telephone:  indicatif + ' ' + phone,         /* colonne de la feuille */
         formule:    sumPlan.textContent,
         prix:       parseFloat(sumPrice.textContent.replace(/[^0-9,.-]/g, '').replace(',', '.')) || 0,
         connexions: parseInt(sumConn.textContent, 10) || 1,

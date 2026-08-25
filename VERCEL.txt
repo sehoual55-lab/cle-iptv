@@ -3,45 +3,34 @@
 ================================================================
 
   Le dossier contient déjà vercel.json : les adresses propres
-  ( /appareils au lieu de /appareils.html ) fonctionneront
+  ( /appareils au lieu de /appareils.html ) fonctionnent
   automatiquement, sans rien configurer.
 
 
-MÉTHODE 1 — GLISSER-DÉPOSER (la plus simple, 2 minutes)
--------------------------------------------------------
-  1. Créez un compte sur https://vercel.com (gratuit).
-  2. Allez sur  https://vercel.com/new
-  3. En bas de la page, cliquez sur l'onglet ou le lien
-     « Deploy a template » puis cherchez l'option d'import
-     manuel — ou plus simple, utilisez la méthode 2.
-
-  Si votre interface Vercel propose une zone
-  « Drag and drop your project folder », déposez-y le dossier
-  décompressé (pas le fichier .zip).
-
-
-MÉTHODE 2 — EN LIGNE DE COMMANDE (la plus fiable)
--------------------------------------------------
+MÉTHODE 1 — LIGNE DE COMMANDE (la plus fiable)
+----------------------------------------------
   1. Installez Node.js depuis https://nodejs.org (version LTS).
-  2. Ouvrez un terminal dans le dossier décompressé.
+  2. Ouvrez un terminal DANS le dossier décompressé.
   3. Tapez ces commandes, l'une après l'autre :
 
         npm i -g vercel
         vercel login
         vercel --prod
 
-  4. Répondez aux questions (le nom du projet, puis « ./ » pour
-     le dossier). Vercel vous donne une adresse en .vercel.app.
+  4. Répondez aux questions : nom du projet, puis « ./ » pour le
+     dossier, et « no » si l'on vous propose un framework.
+     Vercel vous donne une adresse en .vercel.app.
 
 
-MÉTHODE 3 — VIA GITHUB (recommandée si vous modifiez souvent)
--------------------------------------------------------------
+MÉTHODE 2 — VIA GITHUB (idéale si vous modifiez souvent)
+--------------------------------------------------------
   1. Créez un dépôt sur https://github.com/new
-  2. Envoyez-y le contenu du dossier décompressé.
+  2. Envoyez-y le CONTENU du dossier décompressé
+     (index.html et assets/ doivent être à la racine du dépôt).
   3. Sur https://vercel.com/new, cliquez « Import Git Repository »
      et sélectionnez ce dépôt.
-  4. Framework Preset : « Other ». Ne remplissez aucune commande
-     de build. Cliquez « Deploy ».
+  4. Framework Preset : « Other ». Laissez les commandes de build
+     vides. Cliquez « Deploy ».
 
   Ensuite, chaque modification envoyée sur GitHub met le site à
   jour automatiquement.
@@ -62,19 +51,20 @@ BRANCHER VOTRE DOMAINE cle-iptv.store
      elles priment sur cet exemple.
 
   4. Comptez de quelques minutes à quelques heures de propagation.
-     Le certificat HTTPS est créé automatiquement par Vercel.
+     Le certificat HTTPS est créé automatiquement.
 
   ATTENTION : un domaine ne peut pointer que vers un seul
   hébergement. Si le site tourne déjà chez Namecheap, il basculera
-  sur Vercel une fois les DNS modifiés.
+  sur Vercel dès que les DNS seront modifiés. Testez d'abord sur
+  l'adresse .vercel.app.
 
 
 CE QUI CHANGE PAR RAPPORT À NAMECHEAP
 -------------------------------------
-  - .htaccess est ignoré par Vercel : c'est vercel.json qui prend
-    le relais. Gardez les deux fichiers, chacun sert un hébergeur.
+  - .htaccess est ignoré par Vercel : vercel.json prend le relais.
+    Gardez les deux fichiers, chacun sert un hébergeur.
   - .vercelignore empêche la publication des fichiers d'aide
-    (apps-script.gs, GOOGLE-SHEET.txt, LISEZMOI.txt).
-  - Le cache est géré par vercel.json. Le principe du numéro de
-    version ( ?v=5 ) reste valable : incrémentez-le dans les 13
-    fichiers HTML à chaque modification du CSS ou du JS.
+    (apps-script.gs, GOOGLE-SHEET.txt, LISEZMOI.txt, VERCEL.txt).
+  - Le principe du numéro de version ( ?v=6 ) reste valable :
+    incrémentez-le dans les 13 fichiers HTML à chaque modification
+    du CSS ou du JS.
