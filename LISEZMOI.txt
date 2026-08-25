@@ -1,0 +1,130 @@
+================================================================
+  CLÉ IPTV — cle-iptv.store — site complet (13 pages)
+================================================================
+
+  >>> URGENT : VOTRE SCRIPT GOOGLE N'EST PAS PUBLIC <<<
+
+  J'ai testé votre adresse de script :
+  https://script.google.com/macros/s/AKfycbw5L3.../exec
+  Elle renvoie vers une page de connexion Google, ce qui signifie
+  que le déploiement N'EST PAS réglé sur « Tout le monde ».
+  Tant que ce n'est pas corrigé, AUCUNE commande ne vous parviendra.
+
+  Correction (2 minutes) :
+    1. Ouvrez votre feuille > Extensions > Apps Script
+    2. En haut à droite : Déployer > Gérer les déploiements
+    3. Cliquez sur l'icône crayon (Modifier)
+    4. « Qui a accès »  ->  TOUT LE MONDE
+       (surtout pas « Moi uniquement » ni « Utilisateurs
+        connectés à un compte Google »)
+    5. Version : « Nouvelle version », puis Déployer
+    6. Si l'adresse /exec change, remplacez ORDER_ENDPOINT dans
+       assets/app.js
+
+  Vérification : ouvrez l'adresse /exec dans une fenêtre de
+  navigation privée. Vous devez voir un texte JSON commençant par
+  {"ok":true...} et NON une page de connexion Google.
+
+
+OÙ METTRE LE SITE EN LIGNE
+--------------------------
+  Vercel      -> lisez VERCEL.txt (le fichier vercel.json est prêt)
+  Namecheap   -> lisez la section « cPanel » plus bas
+                 (le fichier .htaccess est prêt)
+
+  Les deux fichiers de configuration cohabitent sans problème :
+  chaque hébergeur ignore celui de l'autre.
+
+
+ADRESSES DU SITE
+----------------
+  /                            Accueil + tarifs + commande
+  /appareils                   Appareils + guides d'installation
+  /catalogue                   Catalogue films et séries
+  /fonctionnement              Comment ça marche
+  /blog                        Blog (3 articles)
+  /faq                         Questions fréquentes
+  /contact                     Contact
+  /mentions-legales  /confidentialite  /conditions-generales
+
+  Les adresses avec .html redirigent automatiquement vers les
+  adresses propres.
+
+
+FICHIERS
+--------
+  13 fichiers .html
+  assets/style.css     Style commun à toutes les pages
+  assets/app.js        Script commun (dont l'envoi des commandes)
+  vercel.json          Configuration Vercel
+  .vercelignore        Fichiers à ne pas publier sur Vercel
+  .htaccess            Configuration Apache / Namecheap
+  robots.txt / sitemap.xml
+  apps-script.gs       Script Google Sheets
+  GOOGLE-SHEET.txt     Mode d'emploi de la feuille de commandes
+  VERCEL.txt           Mode d'emploi Vercel
+  LISEZMOI.txt         Ce fichier
+
+  Gardez tous les noms de fichiers tels quels et laissez le dossier
+  assets/ à côté des pages HTML.
+
+
+MISE EN LIGNE SUR NAMECHEAP (cPanel)
+------------------------------------
+  1. cPanel > File Manager > public_html
+  2. Supprimez l'ancienne version : les .html et l'ancien assets/
+  3. Upload du zip, clic droit > Extract, puis supprimez le zip
+  4. Settings > Show Hidden Files : vérifiez la présence de .htaccess
+  5. Ouvrez le site en navigation privée
+
+  Si les pages intérieures renvoient une 404, demandez au support
+  Namecheap d'activer mod_rewrite.
+
+
+CACHE DU NAVIGATEUR
+-------------------
+  Après une mise à jour, une page peut s'afficher avec le nouveau
+  HTML mais l'ancien CSS. Faites Ctrl + F5 (Cmd + Maj + R sur Mac)
+  ou testez en navigation privée.
+
+  Les pages appellent assets/style.css?v=5 et assets/app.js?v=5.
+  À CHAQUE modification du CSS ou du JS, incrémentez ce numéro dans
+  les 13 fichiers HTML (Rechercher/Remplacer ?v=5 -> ?v=6).
+
+
+À COMPLÉTER
+-----------
+  1. SCRIPT GOOGLE EN « TOUT LE MONDE »   <-- voir tout en haut
+
+  2. NUMÉRO DE TÉLÉPHONE
+     +33 6 12 34 56 78 est un exemple, présent dans l'en-tête, le
+     pied de page et le bouton d'appel de chaque page.
+     Rechercher/Remplacer dans tous les .html :
+       - texte affiché : +33 6 12 34 56 78
+       - liens d'appel : tel:+33612345678
+     Pensez aussi à ORDER_PHONE dans assets/app.js et à PHONE dans
+     apps-script.gs.
+
+  3. TARIFS (index.html, section TARIFS)
+     data-base   = prix pour UNE connexion
+     data-months = nombre TOTAL de mois d'accès, mois offerts compris
+     data-discount sur « pricing-grid » = remise par connexion (0.15)
+     Les tarifs viennent de votre modèle mais sont en euros :
+     vérifiez-les avant de communiquer dessus.
+
+  4. CLÉ API TMDB
+     Visible dans assets/app.js, donc publique. Révoquez l'actuelle
+     sur votre compte TMDB, créez-en une nouvelle, remplacez TMDB_KEY.
+
+  5. PAGES LÉGALES
+     Champs surlignés en jaune à remplacer (raison sociale, SIRET,
+     adresse, hébergeur, médiateur de la consommation...).
+     Supprimez ensuite le bandeau jaune en haut de chaque page.
+
+
+APRÈS LA MISE EN LIGNE
+----------------------
+  - Passez une commande de test et vérifiez qu'elle arrive DANS LA
+    FEUILLE et PAR E-MAIL. C'est le seul test qui compte.
+  - Search Console : soumettez https://cle-iptv.store/sitemap.xml
+  - Vérifiez chaque page sur téléphone

@@ -1,0 +1,161 @@
+================================================================
+  CLÉ IPTV — Recevoir les commandes dans Google Sheets
+================================================================
+
+  Résultat : chaque commande passée sur cle-iptv.store ajoute une
+  ligne dans votre feuille « cle iptv Commandes », vous envoie une
+  alerte par e-mail, et envoie un accusé de réception au client.
+
+  Durée : environ 10 minutes. Aucune compétence technique requise.
+
+
+ÉTAPE 1 — OUVRIR L'ÉDITEUR DE SCRIPT
+------------------------------------
+  Ouvrez votre feuille « cle iptv Commandes », puis dans le menu :
+
+      Extensions  >  Apps Script
+
+  Un nouvel onglet s'ouvre avec un fichier « Code.gs » contenant
+  quelques lignes vides.
+
+
+ÉTAPE 2 — COLLER LE SCRIPT
+--------------------------
+  Sélectionnez tout le contenu de Code.gs (Ctrl+A) et supprimez-le.
+  Ouvrez le fichier apps-script.gs fourni dans ce dossier, copiez
+  tout son contenu et collez-le à la place.
+
+  Enregistrez :  icône disquette,  ou Ctrl+S
+
+  Votre identifiant de feuille et votre adresse e-mail sont déjà
+  renseignés en haut du fichier. Vérifiez simplement la ligne :
+
+      var SHEET_NAME = 'Sheet1';
+
+  Si l'onglet du bas de votre feuille s'appelle autrement
+  (« Feuille 1 » par exemple), corrigez cette valeur. En cas
+  d'erreur, le script utilise de toute façon le premier onglet.
+
+
+ÉTAPE 3 — AUTORISER LE SCRIPT
+-----------------------------
+  En haut de l'éditeur, choisissez la fonction « testerLeScript »
+  dans la liste déroulante, puis cliquez sur « Exécuter ».
+
+  Google demande une autorisation :
+    - Cliquez sur « Examiner les autorisations »
+    - Choisissez votre compte Google
+    - Un avertissement « Google n'a pas validé cette application »
+      apparaît : c'est normal, c'est VOTRE script.
+      Cliquez sur « Paramètres avancés » puis sur
+      « Accéder à Sans titre (non sécurisé) »
+    - Cliquez sur « Autoriser »
+
+  Vérifiez ensuite :
+    - une ligne « Test Dupont » est apparue dans votre feuille
+    - un e-mail est arrivé sur xyz905391@gmail.com
+
+  Si oui, supprimez la ligne de test et passez à l'étape suivante.
+
+
+ÉTAPE 4 — PUBLIER LE SCRIPT
+---------------------------
+  En haut à droite :   Déployer  >  Nouveau déploiement
+
+    - Cliquez sur l'engrenage à gauche > choisissez
+      « Application Web »
+    - Description        : Commandes Clé IPTV
+    - Exécuter en tant que : Moi
+    - Qui a accès        : TOUT LE MONDE   <-- INDISPENSABLE
+    - Cliquez sur « Déployer »
+
+  ATTENTION : si « Qui a accès » reste sur « Moi uniquement », le
+  site ne pourra pas envoyer les commandes.
+
+
+ÉTAPE 5 — COPIER L'ADRESSE ET LA COLLER DANS LE SITE
+----------------------------------------------------
+  Google affiche une adresse « Web app URL » de la forme :
+
+      https://script.google.com/macros/s/AKfycb............/exec
+
+  Copiez-la, puis ouvrez  assets/app.js  et remplacez la ligne :
+
+      var ORDER_ENDPOINT = '';
+
+  par :
+
+      var ORDER_ENDPOINT = 'https://script.google.com/macros/s/AKfycb...../exec';
+
+  Enregistrez, puis réenvoyez assets/app.js sur votre hébergement.
+
+  IMPORTANT : incrémentez aussi le numéro de version dans les 13
+  fichiers HTML (Rechercher/Remplacer  ?v=4  ->  ?v=5), sinon les
+  visiteurs qui ont déjà vu le site garderont l'ancien script.
+
+
+ÉTAPE 6 — TESTER POUR DE VRAI
+-----------------------------
+  Ouvrez https://cle-iptv.store en navigation privée, passez une
+  commande de test avec votre propre e-mail, et vérifiez que :
+
+    - une ligne apparaît dans la feuille
+    - l'alerte arrive sur xyz905391@gmail.com
+    - l'accusé de réception arrive sur l'adresse de test
+
+  NE SAUTEZ PAS CETTE ÉTAPE. Tant qu'elle n'est pas faite, vous ne
+  pouvez pas savoir si les commandes de vos clients vous parviennent.
+
+
+SI VOUS MODIFIEZ LE SCRIPT PLUS TARD
+------------------------------------
+  Après chaque modification :  Déployer > Gérer les déploiements >
+  crayon > Version : « Nouvelle version » > Déployer.
+  Sans cette étape, vos changements ne sont pas pris en compte.
+
+
+COLONNES REMPLIES
+-----------------
+  A  Date         date et heure de la commande
+  B  Nom          nom complet saisi par le client
+  C  Email
+  D  Téléphone    indicatif + numéro
+  E  Formule      ex. « Gold — 15 mois (+3 offerts) »
+  F  Prix (€)     nombre, connexions supplémentaires incluses
+  G  Connexions   nombre de connexions simultanées
+  H  Paiement     Carte bancaire / PayPal / Via WhatsApp
+  I  Statut       « Nouvelle » — à vous de le faire évoluer
+                  (Payée, Activée, Annulée...)
+
+
+SÉCURITÉ — À SAVOIR
+-------------------
+  Le script vérifie un mot de passe partagé (« cle-iptv-2026 »)
+  avant d'enregistrer une commande. Ce mot de passe est présent dans
+  assets/app.js, donc visible par un visiteur curieux : il décourage
+  les robots, mais n'empêche pas quelqu'un de déterminé d'envoyer de
+  fausses lignes dans votre feuille.
+
+  Pour le changer, modifiez la même valeur aux deux endroits :
+    - TOKEN         dans le script Google
+    - ORDER_TOKEN   dans assets/app.js
+
+  Aucune donnée bancaire ne transite par ce formulaire : il ne
+  collecte que le nom, l'e-mail, le téléphone et la formule choisie.
+  C'est bien ce que décrit votre politique de confidentialité.
+
+
+SI ÇA NE MARCHE PAS
+-------------------
+  - Le formulaire affiche « L'envoi n'a pas abouti »
+      > l'adresse ORDER_ENDPOINT est absente ou incorrecte,
+        ou le déploiement n'est pas sur « Tout le monde »
+
+  - Rien n'arrive dans la feuille mais le site dit « commande
+    enregistrée »
+      > vérifiez SHEET_NAME, et l'onglet « Exécutions » dans
+        l'éditeur Apps Script pour lire l'erreur
+
+  - Les e-mails n'arrivent pas
+      > regardez dans les spams ; Gmail limite aussi le nombre
+        d'envois quotidiens d'un compte gratuit (environ 100/jour)
