@@ -946,15 +946,6 @@ p:last-child{margin-bottom:0;}
 #consentErr{margin-top:7px;}
 #consentErr.show{display:block;}
 
-/* Erreur d'envoi de commande */
-.send-error{
-  background:rgba(224,86,79,.07);border:1px solid rgba(224,86,79,.35);
-  border-radius:12px;padding:13px 16px;margin:0 0 14px;
-  font-size:.86rem;line-height:1.55;color:#B23C36;
-}
-.send-error a{color:#B23C36;font-weight:700;text-decoration:underline;}
-.btn.is-sending{opacity:.65;pointer-events:none;}
-
 .modal-foot{padding:22px 30px 28px;}
 .secure-note{
   display:flex;align-items:center;justify-content:center;gap:8px;
@@ -1304,3 +1295,112 @@ p:last-child{margin-bottom:0;}
 .main-nav a.is-active{color:#fff;}
 .main-nav a.is-active::after{width:100%;}
 .mobile-nav a.is-active{color:var(--accent);}
+
+/* ============================================================
+   WHATSAPP — icônes et widget de discussion
+   ============================================================ */
+
+/* Icône WhatsApp pleine : neutralise les styles "stroke" hérités */
+.wa-ico{fill:currentColor !important;stroke:none !important;}
+.header-phone .wa-ico{color:var(--accent);}
+.footer-contact .wa-ico{color:var(--accent);}
+.icon-badge .wa-ico{color:inherit;}
+
+/* --- Bouton flottant --- */
+.wa-widget{position:fixed;right:22px;bottom:22px;z-index:900;font-family:"Manrope","Inter",sans-serif;}
+.wa-launcher{
+  position:relative;
+  display:flex;align-items:center;gap:10px;
+  background:#25D366;color:#fff;border:0;cursor:pointer;
+  padding:14px 20px;border-radius:999px;
+  font-family:inherit;font-weight:700;font-size:.92rem;line-height:1;
+  box-shadow:0 14px 34px rgba(37,211,102,.42);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease);
+}
+.wa-launcher:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(37,211,102,.55);}
+.wa-launcher svg{width:22px;height:22px;fill:#fff;stroke:none;flex:none;}
+.wa-launcher .wa-dot{
+  position:absolute;top:6px;right:6px;width:11px;height:11px;border-radius:50%;
+  background:#FF4D4F;border:2px solid #fff;
+}
+.wa-widget.is-open .wa-launcher .wa-dot{display:none;}
+
+/* --- Bulle d'accroche --- */
+.wa-teaser{
+  position:absolute;right:0;bottom:74px;width:236px;
+  background:#fff;color:var(--text-dark);
+  border-radius:16px 16px 4px 16px;padding:14px 34px 14px 16px;
+  font-size:.88rem;line-height:1.5;box-shadow:var(--shadow-lg);
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease);
+}
+.wa-teaser.show{opacity:1;transform:none;pointer-events:auto;}
+.wa-teaser-close{
+  position:absolute;top:8px;right:8px;width:20px;height:20px;border:0;border-radius:50%;
+  background:transparent;color:var(--muted-dark);font-size:15px;line-height:1;cursor:pointer;
+}
+.wa-teaser-close:hover{background:var(--bg-light);color:var(--text-dark);}
+
+/* --- Panneau de discussion --- */
+.wa-panel{
+  position:absolute;right:0;bottom:74px;width:336px;max-width:calc(100vw - 32px);
+  background:#fff;border-radius:18px;overflow:hidden;
+  box-shadow:0 28px 70px rgba(7,26,43,.32);
+  opacity:0;transform:translateY(14px) scale(.97);pointer-events:none;
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.wa-widget.is-open .wa-panel{opacity:1;transform:none;pointer-events:auto;}
+.wa-head{
+  display:flex;align-items:center;gap:12px;
+  background:#075E54;color:#fff;padding:16px 18px;
+}
+.wa-avatar{
+  width:42px;height:42px;border-radius:50%;flex:none;
+  background:linear-gradient(135deg,var(--accent),var(--accent-royal));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:.8rem;letter-spacing:.5px;color:#06212B;
+}
+.wa-head-txt{flex:1;min-width:0;}
+.wa-head-txt strong{display:block;font-size:.95rem;font-weight:700;}
+.wa-head-txt span{display:flex;align-items:center;gap:6px;font-size:.76rem;opacity:.85;}
+.wa-head-txt span::before{content:"";width:7px;height:7px;border-radius:50%;background:#4AE08A;}
+.wa-close{
+  border:0;background:transparent;color:#fff;opacity:.8;cursor:pointer;
+  font-size:20px;line-height:1;padding:4px 6px;border-radius:8px;flex:none;
+}
+.wa-close:hover{opacity:1;background:rgba(255,255,255,.12);}
+.wa-body{
+  background:#ECE5DD;padding:20px 16px 16px;min-height:142px;
+}
+.wa-bubble{
+  position:relative;background:#fff;border-radius:4px 12px 12px 12px;
+  padding:11px 13px 18px;font-size:.87rem;line-height:1.55;color:#0B1F33;
+  box-shadow:0 1px 2px rgba(11,31,51,.14);max-width:92%;
+}
+.wa-bubble .wa-time{
+  position:absolute;right:10px;bottom:5px;font-size:.66rem;color:#7C8C99;
+}
+.wa-foot{display:flex;align-items:center;gap:9px;padding:11px 12px;background:#F6F8FA;}
+.wa-input{
+  flex:1;min-width:0;border:1px solid var(--border-light);border-radius:999px;
+  padding:11px 15px;font-family:"Inter",sans-serif;font-size:.88rem;color:var(--text-dark);
+  background:#fff;outline:none;
+}
+.wa-input:focus{border-color:#25D366;box-shadow:0 0 0 3px rgba(37,211,102,.16);}
+.wa-send{
+  width:42px;height:42px;flex:none;border:0;border-radius:50%;background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s var(--ease),transform .2s var(--ease);
+}
+.wa-send:hover{background:#1EBE5B;transform:scale(1.05);}
+.wa-send svg{width:19px;height:19px;fill:#fff;stroke:none;}
+
+@media (max-width:560px){
+  .wa-widget{right:16px;bottom:16px;}
+  .wa-launcher{padding:15px;}
+  .wa-launcher .wa-label{display:none;}
+  .wa-teaser{width:200px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .wa-launcher,.wa-panel,.wa-teaser{transition:none;}
+}

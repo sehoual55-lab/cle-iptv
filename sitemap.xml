@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cle-iptv.store/</loc>
+    <loc>https://cleiptv.site/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/catalogue</loc>
+    <loc>https://cleiptv.site/catalogue.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/appareils</loc>
+    <loc>https://cleiptv.site/appareils.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/blog</loc>
+    <loc>https://cleiptv.site/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/fonctionnement</loc>
+    <loc>https://cleiptv.site/fonctionnement.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/faq</loc>
+    <loc>https://cleiptv.site/faq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/debit-internet-iptv-4k</loc>
+    <loc>https://cleiptv.site/debit-internet-iptv-4k.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/erreurs-iptv-smart-tv</loc>
+    <loc>https://cleiptv.site/erreurs-iptv-smart-tv.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/nombre-connexions-simultanees</loc>
+    <loc>https://cleiptv.site/nombre-connexions-simultanees.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/contact</loc>
+    <loc>https://cleiptv.site/contact.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/mentions-legales</loc>
+    <loc>https://cleiptv.site/mentions-legales.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/confidentialite</loc>
+    <loc>https://cleiptv.site/confidentialite.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cle-iptv.store/conditions-generales</loc>
+    <loc>https://cleiptv.site/conditions-generales.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

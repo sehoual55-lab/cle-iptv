@@ -1,114 +1,135 @@
 ================================================================
-  CLÉ IPTV — cle-iptv.store — site complet (13 pages)
+  CLÉ IPTV — Site web complet à mettre en ligne sur Namecheap
 ================================================================
 
-CE QUI A CHANGÉ DANS CETTE VERSION
+  >>> SI VOUS METTEZ À JOUR UN SITE DÉJÀ EN LIGNE, LISEZ LA
+      SECTION « CACHE DU NAVIGATEUR » PLUS BAS. <<<
+
+
+STRUCTURE DU SITE (13 pages)
+----------------------------
+  index.html                 Accueil : hero, avantages, catalogue,
+                             GRILLE DES TARIFS, blog court
+  appareils.html             Appareils compatibles + guides d'installation
+  catalogue.html             Catalogue films et séries
+  fonctionnement.html        Comment ça marche
+  blog.html                  Liste des articles
+    debit-internet-iptv-4k.html
+    erreurs-iptv-smart-tv.html
+    nombre-connexions-simultanees.html
+  faq.html                   Questions fréquentes + contenu SEO
+  contact.html               Contact (accessible par le pied de page)
+
+  mentions-legales.html      Mentions légales
+  confidentialite.html       Politique de confidentialité
+  conditions-generales.html  Conditions générales de vente
+
+  assets/style.css           Feuille de style commune à toutes les pages
+  assets/app.js              Script commun à toutes les pages
+
+  robots.txt / sitemap.xml / .htaccess / LISEZMOI.txt
+
+  IMPORTANT
+  - Gardez tous les noms de fichiers tels quels.
+  - Le dossier assets/ doit rester à côté des pages HTML.
+  - Les tarifs sont UNIQUEMENT sur l'accueil (section « tarifs »).
+
+
+CACHE DU NAVIGATEUR — À LIRE AVANT DE CRIER AU BUG
+--------------------------------------------------
+  Les navigateurs gardent en mémoire l'ancienne feuille de style.
+  Après une mise à jour, une page peut donc s'afficher avec le nouveau
+  HTML mais l'ancien CSS : icônes géantes, blocs déformés, couleurs
+  incohérentes. Le site n'est pas cassé, le navigateur est en retard.
+
+  Deux réflexes :
+
+  1. Rechargement forcé      Ctrl + F5   (Windows)
+                             Cmd + Maj + R  (Mac)
+     Ou testez d'abord en navigation privée.
+
+  2. Numéro de version
+     Les pages appellent  assets/style.css?v=2  et  assets/app.js?v=2
+     À CHAQUE fois que vous modifiez le CSS ou le JS, incrémentez ce
+     numéro dans les 13 fichiers HTML (?v=3, puis ?v=4...).
+     Rechercher/Remplacer :   ?v=2   ->   ?v=3
+     Les visiteurs recevront alors la nouvelle version immédiatement.
+
+
+MISE EN LIGNE (cPanel Namecheap)
+--------------------------------
+  1. cPanel : https://cleiptv.site/cpanel
+  2. File Manager > public_html
+  3. Supprimez le default.html de démonstration s'il existe.
+     Si vous remplacez une version précédente, supprimez aussi
+     l'ancien dossier assets/ avant d'extraire.
+  4. Upload de cleiptv-site.zip
+  5. Clic droit sur le zip > Extract (directement dans public_html,
+     avec le dossier assets à côté — pas dans un sous-dossier)
+  6. Supprimez le zip
+  7. Ouvrez https://cleiptv.site en navigation privée et testez
+     chaque entrée du menu
+
+  Le .htaccess est masqué par défaut : Settings > Show Hidden Files.
+
+
+CERTIFICAT SSL
+--------------
+  cPanel > SSL/TLS Status > Run AutoSSL. Une fois le cadenas visible,
+  décommentez le bloc « Forcer le HTTPS » dans .htaccess.
+
+
+À COMPLÉTER AVANT LA MISE EN LIGNE
 ----------------------------------
-  - assets/app.js pointe désormais vers votre NOUVEAU déploiement
-    Google (celui réglé sur « Anyone ») :
-    .../AKfycbxTQpbZTeRL7a3c-0CIbZYCNRIRO73Iz6IN0GSv.../exec
-  - Numéro de version des fichiers : ?v=7
-
-  APRÈS L'UPLOAD, PASSEZ UNE COMMANDE DE TEST SUR LE SITE
-  et vérifiez qu'une ligne apparaît dans la feuille et qu'un
-  e-mail arrive. C'est le seul test qui compte.
-
-
-SI LA COMMANDE NE PASSE TOUJOURS PAS
-------------------------------------
-  1. Ouvrez le site, faites F12 > onglet « Console »
-  2. Passez une commande de test
-  3. Notez le message d'erreur rouge qui apparaît
-
-  Vérifiez aussi que l'ancien déploiement (AKfycbw5L3ncry...)
-  est bien archivé dans Déployer > Gérer les déploiements, pour
-  éviter toute confusion entre les deux.
-
-
-ADRESSES DU SITE
-----------------
-  /                            Accueil + tarifs + commande
-  /appareils                   Appareils + guides d'installation
-  /catalogue                   Catalogue films et séries
-  /fonctionnement              Comment ça marche
-  /blog                        Blog (3 articles)
-  /faq                         Questions fréquentes
-  /contact                     Contact
-  /mentions-legales  /confidentialite  /conditions-generales
-
-
-OÙ METTRE LE SITE EN LIGNE
---------------------------
-  Vercel      -> lisez VERCEL.txt (vercel.json est prêt)
-  Namecheap   -> section cPanel ci-dessous (.htaccess est prêt)
-
-
-MISE EN LIGNE SUR NAMECHEAP (cPanel)
-------------------------------------
-  1. cPanel > File Manager > public_html
-  2. Supprimez l'ancienne version : les .html et l'ancien assets/
-  3. Upload du zip, clic droit > Extract, puis supprimez le zip
-  4. Settings > Show Hidden Files : vérifiez la présence de .htaccess
-  5. Ouvrez le site en navigation privée
-
-  Si les pages intérieures renvoient une 404, demandez au support
-  Namecheap d'activer mod_rewrite.
-
-
-CACHE DU NAVIGATEUR
--------------------
-  Les pages appellent assets/style.css?v=7 et assets/app.js?v=7.
-  À CHAQUE modification du CSS ou du JS, incrémentez ce numéro dans
-  les 13 fichiers HTML (Rechercher/Remplacer ?v=7 -> ?v=8).
-  Sinon vos visiteurs gardent l'ancienne version pendant une semaine.
-
-  Pour vérifier vous-même : Ctrl + F5, ou navigation privée.
-
-
-FICHIERS
---------
-  13 fichiers .html
-  assets/style.css     Style commun à toutes les pages
-  assets/app.js        Script commun (dont l'envoi des commandes)
-  vercel.json / .vercelignore    Configuration Vercel
-  .htaccess                      Configuration Apache / Namecheap
-  robots.txt / sitemap.xml
-  apps-script.gs       Script Google Sheets (à coller dans Apps Script)
-  GOOGLE-SHEET.txt     Mode d'emploi de la feuille de commandes
-  VERCEL.txt           Mode d'emploi Vercel
-  LISEZMOI.txt         Ce fichier
-
-
-À COMPLÉTER
------------
   1. NUMÉRO DE TÉLÉPHONE
-     +33 6 12 34 56 78 est un exemple, présent dans l'en-tête, le
-     pied de page et le bouton d'appel de chaque page.
+     +1 661-541-3954 est un exemple, présent dans l'en-tête, le pied
+     de page et le bouton d'appel de chaque page.
      Rechercher/Remplacer dans tous les .html :
-       - texte affiché : +33 6 12 34 56 78
-       - liens d'appel : tel:+33612345678
-     Pensez aussi à ORDER_PHONE dans assets/app.js et à PHONE dans
-     apps-script.gs.
+       - texte affiché : +1 661-541-3954
+       - liens d'appel : tel:+16615413954
 
   2. TARIFS (index.html, section TARIFS)
-     data-base   = prix pour UNE connexion
-     data-months = nombre TOTAL de mois d'accès, mois offerts compris
-     data-discount sur « pricing-grid » = remise par connexion (0.15)
-     Les tarifs viennent de votre modèle mais sont en euros :
-     vérifiez-les avant de communiquer dessus.
+     Sur chaque formule :
+       data-base   = prix pour UNE connexion
+       data-months = nombre TOTAL de mois d'accès, mois offerts compris
+                     (Gold : 15 + 3 = 18)
+     data-discount sur « pricing-grid » = remise par connexion
+     supplémentaire (0.15 = -15 %).
+     Le prix affiché, le « soit X € par mois » et le récapitulatif de
+     commande se recalculent automatiquement.
+
+     Les tarifs sont repris de votre modèle mais convertis en euros.
+     Vérifiez-les avant la mise en ligne.
 
   3. CLÉ API TMDB
-     Visible dans assets/app.js, donc publique. Révoquez l'actuelle
-     sur votre compte TMDB, créez-en une nouvelle, remplacez TMDB_KEY.
+     Visible dans assets/app.js, donc publique. Révoquez l'actuelle sur
+     votre compte TMDB, créez-en une nouvelle et remplacez TMDB_KEY.
 
   4. PAGES LÉGALES
      Champs surlignés en jaune à remplacer (raison sociale, SIRET,
      adresse, hébergeur, médiateur de la consommation...).
      Supprimez ensuite le bandeau jaune en haut de chaque page.
 
+  5. FORMULAIRE DE COMMANDE
+     Le bouton « Continuer vers le paiement » affiche un message local.
+     Dans assets/app.js, un commentaire indique où brancher votre
+     back-end, un e-mail ou un lien WhatsApp.
+
+  6. ARTICLES DU BLOG
+     Trois articles sont fournis. Pour en ajouter, dupliquez un fichier
+     d'article, changez le contenu, puis ajoutez sa carte dans
+     blog.html et dans la section blog de index.html.
+
+
+MODIFIER LE DESIGN
+------------------
+  Couleurs, polices, espacements : bloc « :root » en haut de
+  assets/style.css. Une modification s'applique à toutes les pages.
+  N'oubliez pas d'incrémenter le ?v= (voir « Cache du navigateur »).
+
 
 APRÈS LA MISE EN LIGNE
 ----------------------
-  - Commande de test : vérifiez la feuille ET l'e-mail
-  - Search Console : soumettez https://cle-iptv.store/sitemap.xml
+  - Search Console : soumettez https://cleiptv.site/sitemap.xml
   - Vérifiez chaque page sur téléphone
+  - Testez une commande de bout en bout

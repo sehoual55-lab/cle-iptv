@@ -7,20 +7,6 @@
 (function () {
   "use strict";
 
-  /* ============================================================
-     ENVOI DES COMMANDES VERS GOOGLE SHEETS
-     ------------------------------------------------------------
-     Collez ici l'adresse du script Google (« Web app URL »)
-     obtenue à l'étape 5 de GOOGLE-SHEET.txt. Elle ressemble à :
-     https://script.google.com/macros/s/AKfycb.../exec
-
-     Tant que cette adresse est vide, le formulaire affiche
-     simplement le message de confirmation sans rien enregistrer.
-     ============================================================ */
-  var ORDER_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxTQpbZTeRL7a3c-0CIbZYCNRIRO73Iz6IN0GSvCPdNOKp36IwBhtpjv3jAoF4dptZ3/exec';
-  var ORDER_TOKEN    = 'cle-iptv-2026';   /* doit correspondre à TOKEN dans le script Google */
-  var ORDER_PHONE    = '+33 6 12 34 56 78';
-
   var $  = function (sel, ctx) { return (ctx || document).querySelector(sel); };
   var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
 
@@ -56,18 +42,12 @@
       });
     }
 
-    /* Normalise « /appareils », « /appareils.html » et « appareils.html » */
-    var norm = function (path) {
-      return String(path || '')
-        .split('#')[0].split('?')[0]
-        .replace(/^.*\//, '')
-        .replace(/\.html$/, '') || 'index';
-    };
-    var here = norm(location.pathname) === '' ? 'index' : norm(location.pathname);
+    var here = location.pathname.split('/').pop() || 'index.html';
     $$('.main-nav a, .mobile-nav a').forEach(function (a) {
-      var raw = a.getAttribute('href') || '';
+      var raw  = a.getAttribute('href') || '';
       if (raw.indexOf('#') !== -1) { return; }   /* les liens vers une ancre ne sont pas « la page » */
-      if (norm(raw) === here) {
+      var href = raw.split('#')[0];
+      if (href && href === here) {
         a.classList.add('is-active');
         a.setAttribute('aria-current', 'page');
       }
@@ -363,83 +343,17 @@
         return;
       }
 
-      var indicatif = $('#dialcode').value;
-      var payload = {
-        token:      ORDER_TOKEN,
-        nom:        fullname,
-        email:      email,
-        indicatif:  indicatif,                       /* ex. +212        */
-        numero:     phone,                           /* saisi par le client */
-        telephone:  indicatif + ' ' + phone,         /* colonne de la feuille */
-        formule:    sumPlan.textContent,
-        prix:       parseFloat(sumPrice.textContent.replace(/[^0-9,.-]/g, '').replace(',', '.')) || 0,
-        connexions: parseInt(sumConn.textContent, 10) || 1,
-        paiement:   selectedPay
-      };
-      sendOrder(payload);
-    });
-  })();
+      /* Branchez ici votre back-end, un envoi d'e-mail ou un lien WhatsApp. Exemple :
+         var msg = 'Commande Clé IPTV%0A' + sumPlan.textContent + '%0A' + sumConn.textContent +
+                   '%0ATotal : ' + sumPrice.textContent + '%0A' + fullname + '%0A' + email +
+                   '%0A' + $('#dialcode').value + ' ' + phone + '%0APaiement : ' + selectedPay;
+         window.location.href = 'https://wa.me/16615413954?text=' + msg;                        */
 
-  /* ---------------------------------------------------------
-     Envoi de la commande
-     --------------------------------------------------------- */
-  function sendOrder(payload) {
-    var modal   = $('#orderModal');
-    var form    = $('#modalForm');
-    var success = $('#modalSuccess');
-    var btn     = $('#submitOrder');
-    var errBox  = $('#sendError');
-
-    function showSuccess() {
       form.style.display = 'none';
       success.classList.add('show');
       $('#modalBox').scrollIntoView({ block: 'nearest' });
-    }
-    function showError() {
-      btn.classList.remove('is-sending');
-      btn.textContent = 'Réessayer';
-      errBox.hidden = false;
-      errBox.innerHTML = "L'envoi n'a pas abouti. Réessayez, ou appelez-nous directement au " +
-                         '<a href="tel:' + ORDER_PHONE.replace(/\s/g, '') + '">' + ORDER_PHONE +
-                         '</a> pour finaliser votre commande.';
-    }
-
-    /* Pas encore branché sur Google Sheets : on confirme sans enregistrer. */
-    if (!ORDER_ENDPOINT) {
-      showSuccess();
-      return;
-    }
-
-    errBox.hidden = true;
-    btn.classList.add('is-sending');
-    btn.textContent = 'Envoi en cours…';
-
-    /* Content-Type « text/plain » : évite la requête preflight que
-       Google Apps Script ne sait pas traiter. */
-    fetch(ORDER_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
-    })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
-        if (res && res.ok) { showSuccess(); }
-        else { showError(); }
-      })
-      .catch(function () {
-        /* Certains navigateurs bloquent la lecture de la réponse de Google.
-           On renvoie alors la commande en aveugle : elle arrive bien dans la
-           feuille, mais nous ne pouvons pas lire la confirmation. */
-        fetch(ORDER_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify(payload)
-        })
-          .then(showSuccess)
-          .catch(showError);
-      });
-  }
+    });
+  })();
 
   /* ---------------------------------------------------------
      Année du footer et ancres internes
@@ -459,4 +373,99 @@
       window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
     });
   });
+})();
+
+/* ============================================================
+   WIDGET WHATSAPP — bouton flottant + mini fenêtre de chat
+   Injecté automatiquement sur toutes les pages.
+   ============================================================ */
+(function () {
+  var WA_NUMBER  = '16615413954';                 /* numéro WhatsApp (format international, sans +) */
+  var WA_NAME    = 'Clé IPTV';
+  var WA_STATUS  = 'En ligne · réponse en quelques minutes';
+  var WA_GREET   = 'Bonjour 👋<br>Une question sur nos abonnements ou besoin d\'aide pour l\'installation ? Écrivez-nous, on vous répond tout de suite.';
+  var WA_DEFAULT = 'Bonjour, je viens du site Clé IPTV et je souhaite plus d\'informations.';
+  var WA_TEASER  = 'Besoin d\'aide ? Écrivez-nous sur WhatsApp.';
+
+  if (document.querySelector('.wa-widget')) { return; }
+
+  var ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+  var SEND = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>';
+
+  var now = new Date();
+  var hh  = ('0' + now.getHours()).slice(-2) + ':' + ('0' + now.getMinutes()).slice(-2);
+  var initials = WA_NAME.replace(/[^A-Za-zÀ-ÿ ]/g, '').split(' ').slice(0, 2)
+                   .map(function (w) { return w.charAt(0); }).join('').toUpperCase();
+
+  var wrap = document.createElement('div');
+  wrap.className = 'wa-widget';
+  wrap.innerHTML =
+    '<div class="wa-panel" role="dialog" aria-label="Discuter sur WhatsApp avec ' + WA_NAME + '" aria-hidden="true">' +
+      '<div class="wa-head">' +
+        '<span class="wa-avatar">' + initials + '</span>' +
+        '<span class="wa-head-txt"><strong>' + WA_NAME + '</strong><span>' + WA_STATUS + '</span></span>' +
+        '<button type="button" class="wa-close" aria-label="Fermer la discussion">&times;</button>' +
+      '</div>' +
+      '<div class="wa-body"><div class="wa-bubble">' + WA_GREET + '<span class="wa-time">' + hh + '</span></div></div>' +
+      '<form class="wa-foot">' +
+        '<input type="text" class="wa-input" placeholder="Écrivez votre message…" aria-label="Votre message">' +
+        '<button type="submit" class="wa-send" aria-label="Envoyer sur WhatsApp">' + SEND + '</button>' +
+      '</form>' +
+    '</div>' +
+    '<div class="wa-teaser"><button type="button" class="wa-teaser-close" aria-label="Masquer">&times;</button>' + WA_TEASER + '</div>' +
+    '<button type="button" class="wa-launcher" aria-label="Ouvrir la discussion WhatsApp" aria-expanded="false">' +
+      ICON + '<span class="wa-label">WhatsApp</span><span class="wa-dot"></span>' +
+    '</button>';
+  document.body.appendChild(wrap);
+
+  var panel    = wrap.querySelector('.wa-panel');
+  var launcher = wrap.querySelector('.wa-launcher');
+  var teaser   = wrap.querySelector('.wa-teaser');
+  var input    = wrap.querySelector('.wa-input');
+  var form     = wrap.querySelector('.wa-foot');
+
+  function hideTeaser() {
+    teaser.classList.remove('show');
+    try { sessionStorage.setItem('waTeaser', '1'); } catch (e) {}
+  }
+  function open() {
+    wrap.classList.add('is-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    panel.setAttribute('aria-hidden', 'false');
+    hideTeaser();
+    setTimeout(function () { input.focus(); }, 260);
+  }
+  function close() {
+    wrap.classList.remove('is-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    panel.setAttribute('aria-hidden', 'true');
+  }
+
+  launcher.addEventListener('click', function () {
+    if (wrap.classList.contains('is-open')) { close(); } else { open(); }
+  });
+  wrap.querySelector('.wa-close').addEventListener('click', close);
+  wrap.querySelector('.wa-teaser-close').addEventListener('click', function (e) {
+    e.stopPropagation(); hideTeaser();
+  });
+  teaser.addEventListener('click', open);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && wrap.classList.contains('is-open')) { close(); }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = (input.value || '').trim() || WA_DEFAULT;
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    input.value = '';
+    close();
+  });
+
+  var seen = false;
+  try { seen = sessionStorage.getItem('waTeaser') === '1'; } catch (e) {}
+  if (!seen) {
+    setTimeout(function () {
+      if (!wrap.classList.contains('is-open')) { teaser.classList.add('show'); }
+    }, 4000);
+  }
 })();

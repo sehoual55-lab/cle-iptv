@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cle-iptv.store/sitemap.xml
+Sitemap: https://cleiptv.site/sitemap.xml
