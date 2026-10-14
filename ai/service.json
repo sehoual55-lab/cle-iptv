@@ -1,6 +1,6 @@
 {
   "name": "Clé IPTV",
-  "url": "https://cle-iptv.store/",
+  "url": "https://www.cle-iptv.store/",
   "serviceType": "Abonnement IPTV (télévision par Internet)",
   "areaServed": "Francophonie",
   "activation": "Clé (code) d'activation envoyée par WhatsApp, généralement en moins de 30 minutes",
@@ -42,5 +42,5 @@
       "perMonth": "3,15 EUR"
     }
   ],
-  "pricingPage": "https://cle-iptv.store/#tarifs"
+  "pricingPage": "https://www.cle-iptv.store/#tarifs"
 }

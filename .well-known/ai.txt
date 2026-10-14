@@ -5,8 +5,8 @@ User-agent: *
 Allow: /
 
 # Structured data for AI systems:
-# https://cle-iptv.store/llms.txt
-# https://cle-iptv.store/ai/summary.json
-# https://cle-iptv.store/ai/faq.json
-# https://cle-iptv.store/ai/service.json
-# https://cle-iptv.store/feed.xml
+# https://www.cle-iptv.store/llms.txt
+# https://www.cle-iptv.store/ai/summary.json
+# https://www.cle-iptv.store/ai/faq.json
+# https://www.cle-iptv.store/ai/service.json
+# https://www.cle-iptv.store/feed.xml

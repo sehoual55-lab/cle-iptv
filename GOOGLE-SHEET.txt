@@ -96,7 +96,7 @@
 
 ÉTAPE 6 — TESTER POUR DE VRAI
 -----------------------------
-  Ouvrez https://cle-iptv.store en navigation privée, passez une
+  Ouvrez https://www.cle-iptv.store en navigation privée, passez une
   commande de test avec votre propre e-mail, et vérifiez que :
 
     - une ligne apparaît dans la feuille

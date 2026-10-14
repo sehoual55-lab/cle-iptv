@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Clé IPTV — Blog</title>
-  <link>https://cle-iptv.store/blog</link>
-  <atom:link href="https://cle-iptv.store/feed.xml" rel="self" type="application/rss+xml"/>
+  <link>https://www.cle-iptv.store/blog</link>
+  <atom:link href="https://www.cle-iptv.store/feed.xml" rel="self" type="application/rss+xml"/>
   <description>Conseils et guides pratiques sur l'IPTV : installation, débit, appareils, abonnements.</description>
   <language>fr</language>
   <lastBuildDate>Wed, 14 Oct 2026 09:00:00 GMT</lastBuildDate>
   <item>
     <title>Clé IPTV : c'est quoi exactement, et comment l'activer ?</title>
-    <link>https://cle-iptv.store/cle-iptv-cest-quoi</link>
-    <guid isPermaLink="true">https://cle-iptv.store/cle-iptv-cest-quoi</guid>
+    <link>https://www.cle-iptv.store/cle-iptv-cest-quoi</link>
+    <guid isPermaLink="true">https://www.cle-iptv.store/cle-iptv-cest-quoi</guid>
     <description>Clé IPTV, cle iptv ou clef iptv : ce que c'est vraiment, ce que ça coûte et comment l'activer en trois étapes.</description>
     <pubDate>Wed, 14 Oct 2026 09:00:00 GMT</pubDate>
   </item>
   <item>
     <title>Quel débit Internet faut-il vraiment pour l'IPTV en 4K ?</title>
-    <link>https://cle-iptv.store/debit-internet-iptv-4k</link>
-    <guid isPermaLink="true">https://cle-iptv.store/debit-internet-iptv-4k</guid>
+    <link>https://www.cle-iptv.store/debit-internet-iptv-4k</link>
+    <guid isPermaLink="true">https://www.cle-iptv.store/debit-internet-iptv-4k</guid>
     <description>10, 25 ou 50 Mb/s ? Le point sur le débit nécessaire selon la qualité d'image.</description>
     <pubDate>Tue, 29 Sep 2026 09:00:00 GMT</pubDate>
   </item>
   <item>
     <title>IPTV sur Smart TV : 5 erreurs qui provoquent des coupures</title>
-    <link>https://cle-iptv.store/erreurs-iptv-smart-tv</link>
-    <guid isPermaLink="true">https://cle-iptv.store/erreurs-iptv-smart-tv</guid>
+    <link>https://www.cle-iptv.store/erreurs-iptv-smart-tv</link>
+    <guid isPermaLink="true">https://www.cle-iptv.store/erreurs-iptv-smart-tv</guid>
     <description>La plupart des gels d'image n'ont rien à voir avec le serveur : les cinq réglages à vérifier.</description>
     <pubDate>Tue, 29 Sep 2026 09:10:00 GMT</pubDate>
   </item>
   <item>
     <title>Combien de connexions simultanées choisir pour votre foyer ?</title>
-    <link>https://cle-iptv.store/nombre-connexions-simultanees</link>
-    <guid isPermaLink="true">https://cle-iptv.store/nombre-connexions-simultanees</guid>
+    <link>https://www.cle-iptv.store/nombre-connexions-simultanees</link>
+    <guid isPermaLink="true">https://www.cle-iptv.store/nombre-connexions-simultanees</guid>
     <description>Une, deux ou trois ? Méthode simple pour choisir sans payer pour rien.</description>
     <pubDate>Tue, 29 Sep 2026 09:20:00 GMT</pubDate>
   </item>

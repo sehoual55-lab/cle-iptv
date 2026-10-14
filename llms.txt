@@ -6,23 +6,23 @@ Abonnements : BRONZE 39,99 € / 12 mois · GOLD 49,99 € / 15 mois · PLATINUM
 
 ## Pages principales
 
-- [Accueil & tarifs](https://cle-iptv.store/): présentation du service et des 4 formules d'abonnement
-- [Catalogue](https://cle-iptv.store/catalogue): chaînes, films et séries inclus
-- [Appareils compatibles](https://cle-iptv.store/appareils): Smart TV, Android, iOS, box, ordinateur + guide d'installation
-- [Fonctionnement](https://cle-iptv.store/fonctionnement): comment la clé IPTV s'active, étape par étape
-- [FAQ](https://cle-iptv.store/faq): questions fréquentes (connexion requise, activation, multi-écrans, essai, renouvellement, VPN)
-- [À propos](https://cle-iptv.store/a-propos): qui nous sommes
-- [Contact](https://cle-iptv.store/contact): assistance et avant-vente
+- [Accueil & tarifs](https://www.cle-iptv.store/): présentation du service et des 4 formules d'abonnement
+- [Catalogue](https://www.cle-iptv.store/catalogue): chaînes, films et séries inclus
+- [Appareils compatibles](https://www.cle-iptv.store/appareils): Smart TV, Android, iOS, box, ordinateur + guide d'installation
+- [Fonctionnement](https://www.cle-iptv.store/fonctionnement): comment la clé IPTV s'active, étape par étape
+- [FAQ](https://www.cle-iptv.store/faq): questions fréquentes (connexion requise, activation, multi-écrans, essai, renouvellement, VPN)
+- [À propos](https://www.cle-iptv.store/a-propos): qui nous sommes
+- [Contact](https://www.cle-iptv.store/contact): assistance et avant-vente
 
 ## Blog
 
-- [Clé IPTV : c'est quoi et comment l'activer ?](https://cle-iptv.store/cle-iptv-cest-quoi): définition, clé physique vs code, prix, activation en 3 étapes
-- [Quel débit Internet pour l'IPTV en 4K ?](https://cle-iptv.store/debit-internet-iptv-4k): repères de débit par qualité d'image
-- [IPTV sur Smart TV : 5 erreurs qui provoquent des coupures](https://cle-iptv.store/erreurs-iptv-smart-tv): réglages à vérifier
-- [Combien de connexions simultanées choisir ?](https://cle-iptv.store/nombre-connexions-simultanees): choisir le bon nombre d'écrans
+- [Clé IPTV : c'est quoi et comment l'activer ?](https://www.cle-iptv.store/cle-iptv-cest-quoi): définition, clé physique vs code, prix, activation en 3 étapes
+- [Quel débit Internet pour l'IPTV en 4K ?](https://www.cle-iptv.store/debit-internet-iptv-4k): repères de débit par qualité d'image
+- [IPTV sur Smart TV : 5 erreurs qui provoquent des coupures](https://www.cle-iptv.store/erreurs-iptv-smart-tv): réglages à vérifier
+- [Combien de connexions simultanées choisir ?](https://www.cle-iptv.store/nombre-connexions-simultanees): choisir le bon nombre d'écrans
 
 ## Légal
 
-- [Mentions légales](https://cle-iptv.store/mentions-legales)
-- [Confidentialité](https://cle-iptv.store/confidentialite)
-- [Conditions générales](https://cle-iptv.store/conditions-generales)
+- [Mentions légales](https://www.cle-iptv.store/mentions-legales)
+- [Confidentialité](https://www.cle-iptv.store/confidentialite)
+- [Conditions générales](https://www.cle-iptv.store/conditions-generales)
