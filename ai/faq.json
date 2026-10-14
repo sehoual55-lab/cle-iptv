@@ -1,0 +1,38 @@
+{
+  "url": "https://cle-iptv.store/faq",
+  "language": "fr",
+  "questions": [
+    {
+      "question": "Qu'est-ce que Clé IPTV exactement ?",
+      "answer": "Clé IPTV est un service d'abonnement qui diffuse des chaînes de télévision et un catalogue de films et de séries via votre connexion Internet, sans antenne ni parabole. Vous recevez des identifiants personnels que vous saisissez dans une application compatible sur votre téléviseur, votre téléphone ou votre ordinateur."
+    },
+    {
+      "question": "De quelle connexion Internet ai-je besoin ?",
+      "answer": "Nous recommandons au minimum 10 Mb/s pour un confort en HD et 25 Mb/s pour profiter pleinement de la 4K. Une connexion fibre ou un bon signal Wi-Fi 5 GHz offrent les meilleurs résultats. Pour les téléviseurs, une liaison Ethernet reste la solution la plus stable."
+    },
+    {
+      "question": "Combien de temps prend l'activation ?",
+      "answer": "En général moins de cinq minutes après validation de la commande. Vos identifiants, le lien de l'application et un guide d'installation illustré vous sont envoyés par e-mail. En cas de doute, notre support vous accompagne pas à pas."
+    },
+    {
+      "question": "Puis-je regarder sur plusieurs appareils en même temps ?",
+      "answer": "Oui. Vous choisissez vous-même le nombre de connexions simultanées au moment de la commande, avec les boutons + et − de la formule retenue. La première connexion est au tarif normal et chaque connexion supplémentaire bénéficie de 15 % de réduction. Des connexions peuvent être ajoutées en cours d'abonnement sur simple demande."
+    },
+    {
+      "question": "Un essai est-il possible avant de m'abonner ?",
+      "answer": "Nous proposons un test gratuit de courte durée afin que vous puissiez vérifier la stabilité du flux et la présence de vos chaînes préférées sur votre propre matériel. Contactez-nous par téléphone ou par message pour en faire la demande."
+    },
+    {
+      "question": "Que faire si une chaîne ne fonctionne pas ?",
+      "answer": "Redémarrez d'abord l'application puis votre box Internet : cela résout la majorité des cas. Si le problème persiste, signalez-le à notre support en précisant le nom de la chaîne. Nos équipes techniques interviennent en continu sur les flux."
+    },
+    {
+      "question": "Comment renouveler mon abonnement ?",
+      "answer": "Vous recevez un rappel avant l'échéance. Le renouvellement se fait en quelques clics et conserve vos identifiants existants : vous n'avez rien à réinstaller ni à reconfigurer sur vos appareils."
+    },
+    {
+      "question": "Le service est-il compatible avec un VPN ?",
+      "answer": "Oui, Clé IPTV fonctionne avec la plupart des VPN. Certains fournisseurs d'accès appliquent des restrictions réseau : dans ce cas, un VPN peut améliorer la stabilité. Notre support peut vous conseiller la configuration la plus adaptée à votre situation."
+    }
+  ]
+}

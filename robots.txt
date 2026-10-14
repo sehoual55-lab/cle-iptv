@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cleiptv.site/sitemap.xml
+Sitemap: https://cle-iptv.store/sitemap.xml
+
+# AI discovery
+# https://cle-iptv.store/llms.txt

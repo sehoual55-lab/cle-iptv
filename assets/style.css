@@ -1247,6 +1247,7 @@ p:last-child{margin-bottom:0;}
 .post-cover.c1{background:linear-gradient(135deg,#12406B,#18C6C8);}
 .post-cover.c2{background:linear-gradient(135deg,#2457E6,#1C7A93);}
 .post-cover.c3{background:linear-gradient(135deg,#0B3557,#4B7BFF);}
+.post-cover.c4{background:linear-gradient(135deg,#071A2B,#18C6C8);}
 .post-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1;}
 .post-tag{
   display:inline-block;align-self:flex-start;margin-bottom:12px;

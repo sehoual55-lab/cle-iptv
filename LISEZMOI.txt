@@ -58,7 +58,7 @@ CACHE DU NAVIGATEUR — À LIRE AVANT DE CRIER AU BUG
 
 MISE EN LIGNE (cPanel Namecheap)
 --------------------------------
-  1. cPanel : https://cleiptv.site/cpanel
+  1. cPanel : https://cle-iptv.store/cpanel
   2. File Manager > public_html
   3. Supprimez le default.html de démonstration s'il existe.
      Si vous remplacez une version précédente, supprimez aussi
@@ -67,7 +67,7 @@ MISE EN LIGNE (cPanel Namecheap)
   5. Clic droit sur le zip > Extract (directement dans public_html,
      avec le dossier assets à côté — pas dans un sous-dossier)
   6. Supprimez le zip
-  7. Ouvrez https://cleiptv.site en navigation privée et testez
+  7. Ouvrez https://cle-iptv.store en navigation privée et testez
      chaque entrée du menu
 
   Le .htaccess est masqué par défaut : Settings > Show Hidden Files.
@@ -130,6 +130,6 @@ MODIFIER LE DESIGN
 
 APRÈS LA MISE EN LIGNE
 ----------------------
-  - Search Console : soumettez https://cleiptv.site/sitemap.xml
+  - Search Console : soumettez https://cle-iptv.store/sitemap.xml
   - Vérifiez chaque page sur téléphone
   - Testez une commande de bout en bout

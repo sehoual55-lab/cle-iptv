@@ -1,0 +1,12 @@
+# ai.txt — AI crawler permissions for cle-iptv.store
+# All AI agents and crawlers are welcome to read and index this site.
+
+User-agent: *
+Allow: /
+
+# Structured data for AI systems:
+# https://cle-iptv.store/llms.txt
+# https://cle-iptv.store/ai/summary.json
+# https://cle-iptv.store/ai/faq.json
+# https://cle-iptv.store/ai/service.json
+# https://cle-iptv.store/feed.xml

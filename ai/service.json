@@ -1,0 +1,46 @@
+{
+  "name": "Clé IPTV",
+  "url": "https://cle-iptv.store/",
+  "serviceType": "Abonnement IPTV (télévision par Internet)",
+  "areaServed": "Francophonie",
+  "activation": "Clé (code) d'activation envoyée par WhatsApp, généralement en moins de 30 minutes",
+  "devices": [
+    "Smart TV (Samsung, LG, Android TV)",
+    "Box Android / Apple TV",
+    "Smartphone et tablette (Android, iOS)",
+    "Ordinateur (Windows, macOS)",
+    "Amazon Fire TV Stick"
+  ],
+  "catalog": {
+    "liveChannels": "25000+",
+    "vod": "100000+ films et séries",
+    "quality": "SD / HD / Full HD / 4K"
+  },
+  "plans": [
+    {
+      "name": "BRONZE",
+      "price": "39,99 EUR",
+      "duration": "12 mois",
+      "perMonth": "3,33 EUR"
+    },
+    {
+      "name": "GOLD",
+      "price": "49,99 EUR",
+      "duration": "15 mois",
+      "perMonth": "2,78 EUR"
+    },
+    {
+      "name": "PLATINUM",
+      "price": "59,99 EUR",
+      "duration": "15 mois",
+      "perMonth": "3,33 EUR"
+    },
+    {
+      "name": "EXCLUSIVE",
+      "price": "84,99 EUR",
+      "duration": "24 mois",
+      "perMonth": "3,15 EUR"
+    }
+  ],
+  "pricingPage": "https://cle-iptv.store/#tarifs"
+}

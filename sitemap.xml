@@ -1,67 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cleiptv.site/</loc>
+    <loc>https://cle-iptv.store/</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/catalogue.html</loc>
+    <loc>https://cle-iptv.store/catalogue</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/appareils.html</loc>
+    <loc>https://cle-iptv.store/appareils</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/blog.html</loc>
+    <loc>https://cle-iptv.store/fonctionnement</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cle-iptv.store/faq</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cle-iptv.store/blog</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/fonctionnement.html</loc>
+    <loc>https://cle-iptv.store/cle-iptv-cest-quoi</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/faq.html</loc>
+    <loc>https://cle-iptv.store/debit-internet-iptv-4k</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cleiptv.site/debit-internet-iptv-4k.html</loc>
-    <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/erreurs-iptv-smart-tv.html</loc>
-    <changefreq>yearly</changefreq>
+    <loc>https://cle-iptv.store/erreurs-iptv-smart-tv</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/nombre-connexions-simultanees.html</loc>
-    <changefreq>yearly</changefreq>
+    <loc>https://cle-iptv.store/nombre-connexions-simultanees</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/contact.html</loc>
+    <loc>https://cle-iptv.store/a-propos</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/mentions-legales.html</loc>
+    <loc>https://cle-iptv.store/contact</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://cle-iptv.store/mentions-legales</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/confidentialite.html</loc>
+    <loc>https://cle-iptv.store/confidentialite</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cleiptv.site/conditions-generales.html</loc>
+    <loc>https://cle-iptv.store/conditions-generales</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
