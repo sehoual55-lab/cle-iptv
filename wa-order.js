@@ -1,4 +1,4 @@
-/* wa-order.js — Buy buttons go straight to WhatsApp with plan + connections (2026-10-27) */
+/* wa-order.js v8 (2026-10-31) — plan "Buy" buttons open the checkout page (/checkout/?pack=…&n=…); WhatsApp links stay WhatsApp. */
 (function () {
   "use strict";
   var DEFAULT_WA = "447412836986";
@@ -131,28 +131,28 @@
     if (!w) location.href = url;
   }
 
+  var CK = window.CHECKOUT_URL || "/checkout";
+  var KEYS = [[/excl/i, "Exclusive"], [/plat/i, "Platinum"], [/gold|\bor\b/i, "Gold"], [/bronz/i, "Bronze"]];
+  function packKey(s) { s = String(s || ""); for (var i = 0; i < KEYS.length; i++) if (KEYS[i][0].test(s)) return KEYS[i][1]; return ""; }
+  function go2(pack, n) { location.href = CK + "?pack=" + encodeURIComponent(pack || "Gold") + "&n=" + (n || 1); }
+
   window.addEventListener("click", function (e) {
     var t = e.target && e.target.closest ? e.target.closest("a,button,[role=button],input[type=submit]") : null;
-    if (!t) return;
+    if (!t || t.closest("[data-no-checkout]") || t.closest("form")) return;
     var href = t.getAttribute("href") || "";
-    var buy = isBuy(t), card = buy ? findCard(t) : null;
-    var urlPlan = buy ? param(href, ["plan", "package", "pack", "offer", "offre", "formule", "forfait", "paket", "plano"]).replace(/[-_]+/g, " ") : "";
-    if (!card && urlPlan) card = document.createElement("div");
-    if (card) {
-      var raw = urlPlan || planName(t, card);
-      var plan = raw.split(/\s+[-\u2014\u2013|\u00b7:]\s+|\s*\(/)[0].replace(STRIP, "").replace(TAIL, "").trim();
-      var dm = raw.match(DUR), dur = dm ? dm[1] + " " + dm[2].toLowerCase() : duration(card, plan);
-      if (dm && plan.replace(DUR, "").trim() === "") dur = "";
-      if (!plan && dur) { plan = dur; dur = ""; }
-      var n = connections(card, href);
-      if (n < 1 || n > 10) n = 1;
-      var msg = message(plan || "", dur, n);
-      var url = "https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msg);
-      window.__waLast = { plan: plan, duration: dur, connections: n, url: url };
-      e.preventDefault(); e.stopImmediatePropagation();
-      if (!window.__waDry) go(url);
-      return;
-    }
-    if (/wa\.me\/|api\.whatsapp\.com/.test(href)) { e.stopImmediatePropagation(); }
+    var label = txt(t) || t.value || "";
+    if (/whats\s?app/i.test(label) || /\bwa\b|btn-wa|whatsapp/i.test(String(t.className || ""))) return;
+    if (!isBuy(t)) return;
+    if (/^#/.test(href) && !/wa\.me|checkout/.test(href) && !t.hasAttribute("data-plan") && !t.hasAttribute("data-plan-name")) return;
+    if (/^\/(?!checkout)[a-z]/i.test(href) && !/wa\.me/.test(href)) return; /* normal navigation links (e.g. to the pricing page) */
+    var card = findCard(t);
+    var urlPlan = param(href, ["plan", "package", "pack", "offer", "offre", "formule", "forfait", "paket", "plano"]);
+    var raw = urlPlan || t.getAttribute("data-plan") || t.getAttribute("data-plan-name") || (card ? planName(t, card) : "");
+    var pack = packKey(raw) || (card ? packKey(txt(card).slice(0, 160)) : "");
+    var n = card ? connections(card, href) : (parseInt(param(href, ["n", "conn", "connections"]), 10) || 1);
+    if (n < 1 || n > 10) n = 1;
+    window.__ckLast = { pack: pack || "Gold", n: n };
+    e.preventDefault(); e.stopImmediatePropagation();
+    if (!window.__waDry) go2(pack, n);
   }, true);
 })();

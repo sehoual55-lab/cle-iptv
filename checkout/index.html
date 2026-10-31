@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finaliser la commande – Clé IPTV</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#071A2B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#071A2B;--ink:#141210;--ink2:#1F1B18;--line:#E1E5EE;--line2:#CDD3DF;--muted:#4F5869;--muted2:#7C8597;--red:#18C6C8;--neon:#18C6C8;--yel:#F4C86A;--dk:#0B2740;--dkl:#17395A;--txt:#FFFFFF;--dm:#B9CAD8;--dm2:#8DA3B7;--serif:"Inter",system-ui,sans-serif;--body:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:radial-gradient(600px 400px at 85% 0%,rgba(24,198,200,.12),transparent 70%),var(--bg);color:var(--txt);font:16px/1.55 var(--body);min-height:100vh}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+.top{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(18px,4vw,48px);border-bottom:1px solid var(--dkl)}
+.brand{font-weight:900;font-size:1.35rem;letter-spacing:-.02em;display:flex;align-items:center;gap:5px}.brand i{font-style:normal;background:var(--neon);color:#04202A;padding:2px 8px;border-radius:8px;font-size:1.15rem}
+.top small{color:var(--dm2);font-size:13px;display:flex;align-items:center;gap:6px}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:1240px;margin:0 auto;gap:clamp(20px,4vw,56px);padding:32px clamp(18px,4vw,48px) 60px;align-items:start}
+.lft{position:relative;overflow:hidden;background:var(--dk);border:1px solid var(--dkl);color:#fff;border-radius:22px;padding:30px clamp(20px,3vw,36px) 34px;box-shadow:0 30px 60px -30px rgba(20,18,16,.55)}
+.wall{position:absolute;inset:-30px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;opacity:.10;transform:rotate(-8deg) scale(1.2);pointer-events:none}
+.wall img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:6px}
+.lft>*:not(.wall){position:relative}
+.yp{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--neon);margin-bottom:12px}
+.packs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.packs button{padding:9px 16px;border-radius:999px;border:1px solid #2C3240;background:rgba(255,255,255,.04);color:#D5DAE6;font-weight:700;font-size:14.5px;cursor:pointer;transition:all .2s}
+.packs button:hover{border-color:#4A5468;color:#fff}
+.packs button.on{background:var(--neon);border-color:var(--neon);color:#04202A}
+.pn h1{font:900 clamp(30px,4vw,44px)/1.1 var(--body);letter-spacing:-.03em;margin-bottom:6px}
+.du{color:#C7CDDA;margin-bottom:22px}.du b{color:var(--yel)}
+.cn{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid #2C3240;border-radius:16px;background:rgba(255,255,255,.04);margin-bottom:22px}
+.cn div{flex:1}.cn b{display:block;font-size:15px}.cn small{color:#97A0B3;font-size:13px}
+.cn button{width:38px;height:38px;border-radius:12px;border:1px solid #2C3240;background:#1C212C;color:#fff;font-size:20px;cursor:pointer}
+.cn button:disabled{opacity:.35;cursor:not-allowed}
+.cn em{font-style:normal;font-weight:800;font-size:19px;min-width:26px;text-align:center}
+.pr{display:flex;align-items:flex-start;gap:2px;font-weight:900;line-height:1}
+.pr .c{font-size:28px;margin-top:8px}.pr .a{font-size:68px;letter-spacing:-.02em}.pr .d{font-size:28px;margin-top:8px}
+.pm{color:#97A0B3;margin:10px 0 24px;font-size:14.5px}.pm b{color:#fff}
+.ft{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;font-size:14.5px;color:#D5DAE6}
+.ft li{display:flex;gap:8px;align-items:center}.ft svg{color:var(--neon);flex:0 0 16px}
+.frm{width:100%;max-width:520px}
+.bk{display:inline-flex;align-items:center;gap:6px;color:var(--dm);font-size:14.5px}.bk:hover{color:#fff}
+.steps{display:flex;gap:6px;list-style:none;margin:16px 0 18px;font-size:12.5px;font-weight:700;color:var(--dm2)}
+.steps li{flex:1;text-align:center;padding:8px 4px;border-radius:999px;border:1px solid var(--dkl);white-space:nowrap}
+.steps li.st-ok{color:var(--neon);border-color:rgba(24,198,200,.35);background:rgba(24,198,200,.06)}
+.steps li.st-on{color:#04202A;background:var(--neon);border-color:var(--neon)}
+.frm h2{font:900 clamp(26px,3.2vw,34px)/1.15 var(--body);letter-spacing:-.03em;margin-bottom:8px}
+.sub{color:var(--dm);font-size:15.5px;margin-bottom:20px}
+.msum{display:none}
+.offer{display:flex;gap:8px;align-items:center;margin:0 0 18px;padding:10px 14px;border-radius:12px;background:rgba(244,200,106,.07);border:1px solid rgba(244,200,106,.3);color:#DCE3F2;font-size:14px}.offer b{color:var(--yel)}
+.wcard{background:#fff;color:var(--ink);border:0;border-radius:20px;padding:24px 20px 18px;box-shadow:0 20px 50px -30px rgba(20,18,16,.35)}
+.wh{font:800 21px var(--body);margin-bottom:4px}.wp{font-size:14px;color:var(--muted2);margin-bottom:18px}
+.fld{margin-bottom:18px}
+label{display:block;font:600 14.5px var(--body);margin:0 0 8px}
+.in{width:100%;background:#F3F5F9;border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;color:var(--ink);font:500 16px var(--body);outline:0;transition:border-color .2s,box-shadow .2s,background .2s}
+.in::placeholder{color:#97A0B3}
+.in:focus{border-color:var(--ink);box-shadow:0 0 0 4px rgba(20,18,16,.07);background:#fff}
+.ph{display:grid;grid-template-columns:130px 1fr;gap:10px}
+select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer;background-color:#F3F5F9;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23141210' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+.err{display:none;color:#DC2626;font-size:13.5px;margin-top:7px}
+.okm{display:none;color:#16A34A;font-size:13px;margin-top:6px}
+.fld.bad .err{display:block}.fld.bad .in{border-color:#DC2626}
+.fld.good .okm{display:block}.fld.good .in{border-color:#16A34A}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.wt{display:flex;justify-content:space-between;align-items:center;border-top:1.5px dashed var(--line2);padding-top:16px;margin:6px 0 16px;font-size:15.5px}.wt b{font:900 24px var(--body)}
+.go{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:14px;padding:18px 20px;background:linear-gradient(90deg,#18C6C8,#4B7BFF);color:#fff;font:800 16.5px var(--body);cursor:pointer;transition:filter .2s}
+.go:hover{filter:brightness(1.08)}.go:disabled{opacity:.6;cursor:wait}
+.gerr{display:none;margin-top:14px;padding:12px 14px;border-radius:12px;background:#FEF2F2;border:1px solid #FECACA;color:#B91C1C;font-size:14px}.gerr a{text-decoration:underline}
+.sec{display:flex;align-items:center;justify-content:center;gap:7px;color:var(--muted2);font-size:12.5px;margin-top:12px;text-align:center}
+.pay{margin:14px 0 0;padding:11px 14px;border-radius:12px;background:var(--dk);border:1px solid var(--dkl);color:var(--dm);font-size:13.5px;text-align:center}.pay b{color:#fff}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.trust div{padding:10px 6px;border:1px solid var(--dkl);background:var(--dk);border-radius:12px;text-align:center;font-size:12.5px;color:var(--dm);line-height:1.35}.trust b{display:block;font-size:17px;margin-bottom:2px}
+.rate{margin-top:12px;text-align:center;font-size:13.5px;color:var(--dm)}.rate b{color:var(--yel)}
+.wad{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;padding:13px;border-radius:14px;border:1px solid rgba(37,211,102,.45);background:transparent;color:#25D366;font-weight:700;font-size:15px}.wad:hover{background:rgba(37,211,102,.08)}
+.pnote{margin:12px 0 0;font-size:12px;line-height:1.5;color:var(--dm2);text-align:center}
+.ok{display:none;text-align:center;padding:40px 0}
+.done .ok{display:block}.done form{display:none}
+.ok .ic{width:72px;height:72px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;font-size:34px;font-weight:800;background:rgba(24,198,200,.1);color:var(--neon);border:1px solid rgba(24,198,200,.4)}
+.ok h2{margin-bottom:10px}.ok .id{display:inline-block;margin-bottom:16px;padding:6px 12px;border-radius:10px;background:var(--dk);border:1px solid var(--dkl);font-weight:800;color:var(--neon)}
+.ok p{color:var(--dm);margin-bottom:22px}.ok p b{color:#fff}
+.ok .wa{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:14px;background:#25D366;color:#fff;font-weight:800}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.rgt{order:-1}.frm{max-width:none}.pr .a{font-size:56px}
+ .msum{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 16px;padding:11px 14px;border:1px solid var(--dkl);border-radius:12px;background:var(--dk);color:var(--dm);font-size:14px}.msum b{color:#fff}.msum i{font-style:normal;margin-left:auto;color:var(--neon);font-weight:700}}
+@media(max-width:520px){.ft{grid-template-columns:1fr}.ft li:nth-child(n+6){display:none}.ph{grid-template-columns:118px 1fr}.packs button{padding:8px 13px;font-size:13.5px}.steps{font-size:11px;gap:5px}.steps li{padding:8px 2px}.top small{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#18C6C8"/><g fill="none" stroke="#071A2B" stroke-width="3" stroke-linecap="round"><circle cx="25" cy="15" r="6"/><path d="M20.5 19.5 10 30M13 27l3 3"/></g></svg>CLÉ <i>IPTV</i></a><small><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Commande sécurisée · Livraison par WhatsApp</small></header>
+<div class="wrap">
+  <aside class="lft" aria-label="Votre offre">
+    <div class="wall" id="wall" aria-hidden="true"></div>
+    <div><span class="yp">Votre offre</span></div>
+    <div class="packs" id="packs" role="radiogroup" aria-label="Votre offre"></div>
+    <div class="pn"><h1 id="pname">Gold</h1></div>
+    <div class="du" id="pdur"></div>
+    <div class="cn"><div><b>Connexions simultanées</b><small>Chaque connexion en plus : -15 %</small></div><button type="button" id="mi" aria-label="−">−</button><em id="cnt">1</em><button type="button" id="pl" aria-label="+">+</button></div>
+    <div class="pr"><span class="c">€</span><span class="a" id="pa">49</span><span class="d" id="pd">,99</span></div>
+    <div class="pm">≈ <b id="pmo">2,78 €</b> par mois · paiement unique, sans engagement</div>
+    <ul class="ft" id="feats"></ul>
+  </aside>
+
+  <main class="rgt">
+    <div class="frm" id="box">
+      <a class="bk" href="/#tarifs">‹ Retour aux offres</a>
+      <form id="f" novalidate>
+        <ol class="steps"><li class="st-ok">✓ Offre</li><li class="st-on">2 · Coordonnées</li><li>3 · WhatsApp</li></ol>
+        <h2>Finaliser la commande</h2>
+        <p class="sub">Entrez votre e-mail et votre numéro WhatsApp – nous vous envoyons votre accès IPTV en quelques minutes.</p>
+        <a class="msum" href="#packs">Offre: <b id="msp">Gold</b> · <span id="msc"></span> · <b id="mst"></b><i>modifier ↓</i></a>
+        <div class="offer" id="offer"></div>
+        <div class="wcard">
+          <div class="wh">Vos coordonnées</div><p class="wp">C'est ici que nous envoyons votre accès IPTV.</p>
+          <div class="fld" id="fe"><label for="em">E-mail</label><input class="in" id="em" type="email" autocomplete="email" placeholder="vous@exemple.fr" required><div class="err">Veuillez entrer une adresse e-mail valide.</div><div class="okm">✓ E-mail correct</div></div>
+          <div class="fld" id="fp"><label for="tel">Téléphone / WhatsApp</label><div class="ph"><select class="in" id="cc" aria-label="+"></select><input class="in" id="tel" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="6 12 34 56 78" required></div><div class="err">Veuillez entrer votre numéro WhatsApp.</div><div class="okm">✓ Numéro correct</div></div>
+          <input class="hp" type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="wt"><span id="wtp"></span><b id="wtt"></b></div>
+          <button class="go" id="go" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="gol">Valider ma commande →</span></button>
+          <div class="gerr" id="gerr"></div>
+          <div class="sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Commande sécurisée · Livraison par WhatsApp</div>
+        </div>
+        <div class="pay">💳 Paiement après la commande via WhatsApp – par <b>carte</b>, <b>Apple Pay</b>, <b>Google Pay</b> ou <b>virement bancaire</b></div>
+        <div class="trust"><div><b>⚡</b>Activé en 5 min</div><div><b>💬</b>Support 24/7</div><div><b>🛡️</b>Serveurs stables</div></div>
+        <div class="rate"><b>★★★★★ 4,9</b> · 2 384 avis</div>
+        <a class="wad" id="wad" href="https://wa.me/16615413954" target="_blank" rel="noopener">💬 Je préfère commander sur WhatsApp</a>
+        <p class="pnote">Vos données sont utilisées uniquement pour traiter votre commande et peuvent être enregistrées à cette fin avant l'envoi du formulaire.</p>
+      </form>
+      <div class="ok" id="ok" role="status" aria-live="polite">
+        <div class="ic">✓</div>
+        <h2>Merci pour votre commande !</h2>
+        <div class="id" id="oid">#CLE</div>
+        <p id="otx"></p>
+        <a class="wa" id="owa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.7.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Nous écrire sur WhatsApp</a>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+(function(){
+  var C={"lang": "fr", "api": "https://m3u-iptv.store/cle-api/", "plans": {"Bronze": {"key": "Bronze", "p": 39.99, "d": "12 mois", "b": "", "m": 12, "adult": false}, "Gold": {"key": "Gold", "p": 49.99, "d": "15 mois", "b": "+3 mois offerts", "m": 18, "adult": false}, "Platinum": {"key": "Platinum", "p": 59.99, "d": "15 mois", "b": "+3 mois offerts", "m": 18, "adult": true}, "Exclusive": {"key": "Exclusive", "p": 84.99, "d": "24 mois", "b": "", "m": 24, "adult": true}}, "alias": {"bronze": "Bronze", "pack bronze": "Bronze", "plan bronze": "Bronze", "paket bronze": "Bronze", "offre bronze": "Bronze", "formule bronze": "Bronze", "abonnement bronze": "Bronze", "package bronze": "Bronze", "or": "Gold", "pack or": "Gold", "plan or": "Gold", "paket or": "Gold", "offre or": "Gold", "formule or": "Gold", "abonnement or": "Gold", "package or": "Gold", "gold": "Gold", "pack gold": "Gold", "plan gold": "Gold", "paket gold": "Gold", "offre gold": "Gold", "formule gold": "Gold", "abonnement gold": "Gold", "package gold": "Gold", "platine": "Platinum", "pack platine": "Platinum", "plan platine": "Platinum", "paket platine": "Platinum", "offre platine": "Platinum", "formule platine": "Platinum", "abonnement platine": "Platinum", "package platine": "Platinum", "platinium": "Platinum", "pack platinium": "Platinum", "plan platinium": "Platinum", "paket platinium": "Platinum", "offre platinium": "Platinum", "formule platinium": "Platinum", "abonnement platinium": "Platinum", "package platinium": "Platinum", "platinum": "Platinum", "pack platinum": "Platinum", "plan platinum": "Platinum", "paket platinum": "Platinum", "offre platinum": "Platinum", "formule platinum": "Platinum", "abonnement platinum": "Platinum", "package platinum": "Platinum", "platin": "Platinum", "pack platin": "Platinum", "plan platin": "Platinum", "paket platin": "Platinum", "offre platin": "Platinum", "formule platin": "Platinum", "abonnement platin": "Platinum", "package platin": "Platinum", "exclusif": "Exclusive", "pack exclusif": "Exclusive", "plan exclusif": "Exclusive", "paket exclusif": "Exclusive", "offre exclusif": "Exclusive", "formule exclusif": "Exclusive", "abonnement exclusif": "Exclusive", "package exclusif": "Exclusive", "exclusiv": "Exclusive", "pack exclusiv": "Exclusive", "plan exclusiv": "Exclusive", "paket exclusiv": "Exclusive", "offre exclusiv": "Exclusive", "formule exclusiv": "Exclusive", "abonnement exclusiv": "Exclusive", "package exclusiv": "Exclusive", "exclusivo": "Exclusive", "pack exclusivo": "Exclusive", "plan exclusivo": "Exclusive", "paket exclusivo": "Exclusive", "offre exclusivo": "Exclusive", "formule exclusivo": "Exclusive", "abonnement exclusivo": "Exclusive", "package exclusivo": "Exclusive", "exclusive": "Exclusive", "pack exclusive": "Exclusive", "plan exclusive": "Exclusive", "paket exclusive": "Exclusive", "offre exclusive": "Exclusive", "formule exclusive": "Exclusive", "abonnement exclusive": "Exclusive", "package exclusive": "Exclusive"}, "feats": ["25 000+ chaînes TV", "100 000+ films et séries", "Qualité 4K, FHD, HD", "Compatible tous appareils", "Guide TV (EPG) inclus", "Serveurs 100 % stables", "Support 24/7", "Livraison instantanée"], "adult": "Chaînes adultes 18+", "conn1": "connexion", "connN": "connexions", "offerB": "Offre : <b>{b}</b> déjà inclus", "offerBig": "La plus longue durée : <b>24 mois</b> d’IPTV avec chaînes adultes incluses", "offerBr": "Astuce : <b>Gold</b> = 18 mois pour seulement 10 € de plus", "save": " · vous économisez <b>{s}</b>", "sending": "Envoi en cours…", "go": "Valider ma commande →", "waOrder": "Bonjour, je souhaite l’offre {p} ({c}) – {t}.", "waDone": "Bonjour, je viens de commander (#{id}) : offre {p}, {c} – {t}.", "errRate": "Trop de tentatives – merci de patienter quelques minutes.", "errGen": "Une erreur est survenue.", "errWa": "Vous pouvez aussi nous écrire sur <a href=\"{u}\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.", "pop": ["FR", "BE", "CH", "LU", "CA", "MA", "DZ", "TN", "SN", "CI", "DE", "GB", "US", "ES"], "dflt": "FR", "codes": "AC247 AD376 AE971 AF93 AG1 AI1 AL355 AM374 AO244 AR54 AS1 AT43 AU61 AW297 AX358 AZ994 BA387 BB1 BD880 BE32 BF226 BG359 BH973 BI257 BJ229 BL590 BM1 BN673 BO591 BQ599 BR55 BS1 BT975 BW267 BY375 BZ501 CA1 CC61 CD243 CF236 CG242 CH41 CI225 CK682 CL56 CM237 CN86 CO57 CR506 CU53 CV238 CW599 CX61 CY357 CZ420 DE49 DJ253 DK45 DM1 DO1 DZ213 EC593 EE372 EG20 EH212 ER291 ES34 ET251 FI358 FJ679 FK500 FM691 FO298 FR33 GA241 GB44 GD1 GE995 GF594 GG44 GH233 GI350 GL299 GM220 GN224 GP590 GQ240 GR30 GT502 GU1 GW245 GY592 HK852 HN504 HR385 HT509 HU36 ID62 IE353 IL972 IM44 IN91 IO246 IQ964 IR98 IS354 IT39 JE44 JM1 JO962 JP81 KE254 KG996 KH855 KI686 KM269 KN1 KP850 KR82 KW965 KY1 KZ7 LA856 LB961 LC1 LI423 LK94 LR231 LS266 LT370 LU352 LV371 LY218 MA212 MC377 MD373 ME382 MF590 MG261 MH692 MK389 ML223 MM95 MN976 MO853 MP1 MQ596 MR222 MS1 MT356 MU230 MV960 MW265 MX52 MY60 MZ258 NA264 NC687 NE227 NF672 NG234 NI505 NL31 NO47 NP977 NR674 NU683 NZ64 OM968 PA507 PE51 PF689 PG675 PH63 PK92 PL48 PM508 PR1 PS970 PT351 PW680 PY595 QA974 RE262 RO40 RS381 RU7 RW250 SA966 SB677 SC248 SD249 SE46 SG65 SH290 SI386 SJ47 SK421 SL232 SM378 SN221 SO252 SR597 SS211 ST239 SV503 SX1 SY963 SZ268 TA290 TC1 TD235 TG228 TH66 TJ992 TK690 TL670 TM993 TN216 TO676 TR90 TT1 TV688 TW886 TZ255 UA380 UG256 US1 UY598 UZ998 VA39 VC1 VE58 VG1 VI1 VN84 VU678 WF681 WS685 XK383 YE967 YT262 ZA27 ZM260 ZW263", "gold": "Gold"};
+  var NUM='16615413954',MAX=5;
+  var POSTERS=['/cetKHC0wHV7xtwJmC1azDqB7jH8.jpg','/ipDrSOeDbJIUSf4XwpyV8BxzTQq.jpg','/lT39E4l7DnCzw5ctrciDxq903qc.jpg','/oKgMCvf2EOIlOYOCHv0KJQXSZT4.jpg','/t8S6AEzYgtGWLLm3AoM1p1GGkSG.jpg','/1ob7dZ1rvAgHOpVJGjJ2voibOp.jpg','/5RzUMLAYw2xHsd98UKcMC9s0ZQ.jpg','/w7c49Qgp3TAUC4hlo0mtgRpLOGG.jpg','/shb3OmIQACcqhRvIcXuba26cP0l.jpg','/xRieId2D3sqKeyhfwO7iJzjbojb.jpg'];
+  var CHK='<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function $(id){return document.getElementById(id)}
+  function usd(v){return v.toFixed(2).replace('.',',')+' €'}
+  function fmt(s,o){return s.replace(/\{(\w+)\}/g,function(m,k){return o[k]!=null?o[k]:m})}
+  $('wall').innerHTML=POSTERS.concat(POSTERS,POSTERS).slice(0,30).map(function(p){return '<img src="https://image.tmdb.org/t/p/w185'+p+'" alt="" loading="lazy" decoding="async">'}).join('');
+  var NAMES=Object.keys(C.plans);
+  var q=new URLSearchParams(location.search);
+  var pack=C.alias[String(q.get('plan')||q.get('pack')||'').toLowerCase().trim()]||C.gold;
+  var n=Math.max(1,Math.min(MAX,parseInt(q.get('n')||'1',10)||1));
+  $('packs').innerHTML=NAMES.map(function(k){return '<button type="button" role="radio" data-k="'+k+'">'+k+'</button>'}).join('');
+  [].forEach.call($('packs').querySelectorAll('button'),function(b){b.onclick=function(){pack=b.dataset.k;render()}});
+  $('mi').onclick=function(){if(n>1){n--;render()}};
+  $('pl').onclick=function(){if(n<MAX){n++;render()}};
+  function total(){return Math.round(C.plans[pack].p*(1+(n-1)*0.85)*100)/100}
+  function cw(k){return k+' '+(k>1?C.connN:C.conn1)}
+  function render(){
+    var P=C.plans[pack],t=total(),s=t.toFixed(2).split('.');
+    [].forEach.call($('packs').querySelectorAll('button'),function(b){var on=b.dataset.k===pack;b.classList.toggle('on',on);b.setAttribute('aria-checked',on)});
+    $('pname').textContent=pack;
+    $('pdur').innerHTML=P.d+(P.b?' · <b>'+P.b+'</b>':'');
+    $('cnt').textContent=n;$('mi').disabled=n<=1;$('pl').disabled=n>=MAX;
+    $('pa').textContent=s[0];$('pd').textContent=','+s[1];
+    $('pmo').textContent=usd(t/P.m);
+    $('msp').textContent=pack;$('msc').textContent=cw(n);$('mst').textContent=usd(t);
+    $('wtp').textContent=pack+' · '+cw(n);$('wtt').textContent=usd(t);
+    var off=P.b?fmt(C.offerB,{b:P.b}):(P.key==='Exclusive'?C.offerBig:C.offerBr);
+    $('offer').innerHTML='🔥 <span>'+off+(n>1?fmt(C.save,{s:usd(P.p*n-t)}):'')+'</span>';
+    $('wad').href='https://wa.me/'+NUM+'?text='+encodeURIComponent(fmt(C.waOrder,{p:pack,c:cw(n),t:usd(t)}));
+    var f=C.feats.slice();if(P.adult)f.splice(3,0,C.adult);
+    $('feats').innerHTML=f.map(function(x){return '<li>'+CHK+x+'</li>'}).join('');
+    try{history.replaceState(null,'','?plan='+encodeURIComponent(pack)+'&n='+n)}catch(e){}
+  }
+  render();
+
+  var RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function digits(){return $('tel').value.replace(/\D/g,'').replace(/^0+/,'')}
+  function bad(id,on){$(id).classList.toggle('bad',on)}
+  var ordered=false;
+  function post(path,obj,keep){return fetch(C.api+path,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(obj),keepalive:!!keep})}
+  $('f').addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=$('em').value.trim(),tel=digits(),cc=$('cc').value;
+    var okE=RE.test(em),okP=tel.length>=6&&(cc+tel).length<=15;
+    bad('fe',!okE);bad('fp',!okP);if(!okE||!okP)return;
+    ordered=true;$('go').disabled=true;$('gol').textContent=C.sending;$('gerr').style.display='none';
+    post('send.php',{lang:C.lang,pack:C.plans[pack].key,conn:n,email:em,cc:cc,phone:tel,website:$('website').value})
+      .then(function(r){return r.json().catch(function(){return {ok:false}})})
+      .then(function(r){
+        if(!r.ok)throw new Error(r.error||'x');
+        var t=usd(total());
+        $('oid').textContent='#'+r.id;
+        $('otx').innerHTML='Offre <b>'+pack+'</b> · '+cw(n)+' · <b>'+t+'</b><br>Nous vous contactons dans quelques minutes sur WhatsApp au <b>+'+cc+' '+tel+'</b> pour le paiement et votre accès.';
+        $('owa').href='https://wa.me/'+NUM+'?text='+encodeURIComponent(fmt(C.waDone,{id:r.id,p:pack,c:cw(n),t:t}));
+        $('box').classList.add('done');window.scrollTo(0,0);
+        try{window.gtag&&gtag('event','purchase_lead',{value:total(),currency:'EUR'})}catch(x){}
+      })
+      .catch(function(err){
+        ordered=false;$('go').disabled=false;$('gol').textContent=C.go;
+        var g=$('gerr');g.style.display='block';
+        g.innerHTML=(String(err.message)==='rate'?C.errRate:C.errGen)+' '+fmt(C.errWa,{u:'https://wa.me/'+NUM+'?text='+encodeURIComponent(fmt(C.waOrder,{p:pack,c:cw(n),t:usd(total())}))});
+      });
+  });
+
+  function chk(){
+    var okE=RE.test($('em').value.trim()),tel=digits(),okP=tel.length>=6&&($('cc').value+tel).length<=15;
+    $('fe').classList.toggle('good',okE);if(okE)$('fe').classList.remove('bad');
+    $('fp').classList.toggle('good',okP);if(okP)$('fp').classList.remove('bad');
+  }
+  ['em','tel','cc'].forEach(function(id){$(id).addEventListener('input',chk);$(id).addEventListener('change',chk)});
+  $('em').addEventListener('blur',function(){var v=$('em').value.trim();if(v&&!RE.test(v))$('fe').classList.add('bad')});
+  $('tel').addEventListener('blur',function(){var v=digits();if(v&&v.length<6)$('fp').classList.add('bad')});
+
+  /* all countries + auto-select the visitor's country */
+  var CC={},ccTouched=false;
+  C.codes.split(' ').forEach(function(x){CC[x.slice(0,2)]=x.slice(2)});
+  (function(){
+    function o(k){return '<option value="'+CC[k]+'" data-iso="'+k+'">'+k+' +'+CC[k]+'</option>'}
+    $('cc').innerHTML='<optgroup label="★">'+C.pop.map(o).join('')+'</optgroup><optgroup label="A–Z">'+Object.keys(CC).sort().map(o).join('')+'</optgroup>';
+  })();
+  function setIso(k){k=String(k||'').toUpperCase();if(ccTouched||!CC[k])return false;var op=$('cc').querySelector('option[data-iso="'+k+'"]');if(op){op.selected=true;chk();}return true}
+  setIso(C.dflt);
+  $('cc').addEventListener('change',function(){ccTouched=true});
+  try{
+    var TZ={'America/Sao_Paulo':'BR','America/Fortaleza':'BR','America/Recife':'BR','America/Bahia':'BR','America/Manaus':'BR','America/Belem':'BR','America/Cuiaba':'BR','America/Campo_Grande':'BR','America/Porto_Velho':'BR','America/Boa_Vista':'BR','America/Rio_Branco':'BR','America/Maceio':'BR','America/Araguaina':'BR','Europe/Lisbon':'PT','Atlantic/Azores':'PT','Atlantic/Madeira':'PT','Africa/Luanda':'AO','Africa/Maputo':'MZ','Europe/Paris':'FR','Europe/Brussels':'BE','Europe/Zurich':'CH','Europe/Luxembourg':'LU','Africa/Casablanca':'MA','Africa/Algiers':'DZ','Africa/Tunis':'TN','Africa/Dakar':'SN','Africa/Abidjan':'CI','Europe/London':'GB','Europe/Dublin':'IE','Europe/Berlin':'DE','Europe/Madrid':'ES','Europe/Rome':'IT','Europe/Amsterdam':'NL','Australia/Sydney':'AU','Australia/Melbourne':'AU','Pacific/Auckland':'NZ','America/Mexico_City':'MX','America/Argentina/Buenos_Aires':'AR','Asia/Kolkata':'IN'};
+    var tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';
+    var lr=((navigator.language||'').split('-')[1]||'');
+    if(!setIso(TZ[tz])){if(/^America\/(Toronto|Montreal|Vancouver|Edmonton|Winnipeg|Halifax|Regina|St_Johns)/.test(tz))setIso('CA');else if(/^(America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Detroit)|Pacific\/Honolulu)/.test(tz))setIso('US');else setIso(lr);}
+  }catch(e){}
+  try{fetch(C.api+'geo.php',{cache:'no-store'}).then(function(r){return r.json()}).then(function(g){if(g&&g.c)setIso(g.c)}).catch(function(){})}catch(e){}
+
+  /* abandoned checkout: report once per visitor if they leave with an email or phone filled in */
+  var started=Date.now(),abSent=false;
+  try{abSent=localStorage.getItem('cle_ab')==='1'}catch(e){}
+  $('wad').addEventListener('click',function(){ordered=true});
+  function abData(){
+    var em=$('em').value.trim(),tel=digits(),okE=RE.test(em),okP=tel.length>=6;
+    if(!okE&&!okP)return null;
+    return {lang:C.lang,pack:C.plans[pack].key,conn:n,email:okE?em:'',cc:$('cc').value,phone:okP?tel:'',started:started,website:$('website').value};
+  }
+  function abSend(){
+    if(abSent||ordered)return;var d=abData();if(!d)return;
+    abSent=true;try{localStorage.setItem('cle_ab','1')}catch(e){}
+    var b=JSON.stringify(d);
+    try{if(navigator.sendBeacon&&navigator.sendBeacon(C.api+'abandon.php',new Blob([b],{type:'text/plain'})))return}catch(e){}
+    try{post('abandon.php',d,true)}catch(e){}
+  }
+  window.addEventListener('pagehide',abSend);
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')abSend()});
+})();
+</script>
+</body>
+</html>
