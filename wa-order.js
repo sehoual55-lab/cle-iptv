@@ -91,7 +91,7 @@
       var chk = s.querySelector('input[type=radio][name*="conn" i]:checked,input[type=radio][name*="screen" i]:checked,input[type=radio][name*="device" i]:checked');
       if (chk && digit(chk.value)) return digit(chk.value);
       var cnt = s.querySelector('[data-conn-value],[data-connections],[data-nb],[aria-live],[class*="stepper"] [class*="val"],[class*="step"] [class*="num"],[class*="stepper"] [class*="value"],[class*="stepper"] [class*="count"],[class*="qty"] [class*="num"],[class*="qty"] [class*="value"],[class*="conn"] [class*="count"],[class*="conn"] [class*="num"],[class*="conn"] [class*="value"],[class*="conn"] output,[class*="count"][class*="conn"],[data-conn-count],[class*="screen"] [class*="count"],[class*="device"] [class*="count"]');
-      if (cnt && digit(txt(cnt) || cnt.getAttribute("data-conn-count") || cnt.getAttribute("data-connections"))) return digit(txt(cnt) || cnt.getAttribute("data-conn-count") || cnt.getAttribute("data-connections"));
+      if (cnt && digit(txt(cnt) || cnt.getAttribute("data-conn-count") || cnt.getAttribute("data-connections")) && digit(txt(cnt) || cnt.getAttribute("data-conn-count") || cnt.getAttribute("data-connections")) <= 10) return digit(txt(cnt) || cnt.getAttribute("data-conn-count") || cnt.getAttribute("data-connections"));
       var act = s.querySelector('[class*="conn"] .active,[class*="conn"] .is-active,[class*="conn"] .selected,[class*="conn"] [aria-pressed="true"],[class*="conn"] [aria-checked="true"],[class*="screen"] .active,[class*="device"] .active');
       if (act && digit(txt(act))) return digit(txt(act));
       if (root === card && card.getAttribute("data-conn") && digit(card.getAttribute("data-conn"))) return digit(card.getAttribute("data-conn"));
