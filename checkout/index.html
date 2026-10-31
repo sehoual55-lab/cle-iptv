@@ -99,6 +99,19 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
 .tk-stub span{font-weight:700;font-size:15.5px;color:#111}
 .tk-tot{text-align:right}.tk-tot b{font:900 28px var(--body);letter-spacing:-.02em;color:#111}
 @media(max-width:520px){.tk-tot b{font-size:24px}}
+
+/* R1 trust strip */
+.trust.tr1{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:14px;border:1px solid rgba(255,255,255,.09);border-radius:14px;background:rgba(255,255,255,.03);overflow:hidden}
+.trust.tr1>div{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 8px;border:0;border-radius:0;background:none;text-align:left;color:inherit}
+.trust.tr1>div+div{border-left:1px solid rgba(255,255,255,.09)}
+.trust.tr1 svg{color:#18C6C8;flex:none}
+.trust.tr1 p{margin:0;line-height:1.25}
+.trust.tr1 b{display:block;font-size:14.5px;font-weight:800;color:#fff;margin:0}
+.trust.tr1 span{font-size:11.5px;color:#9aa0ab}
+.rate{display:flex;justify-content:center;margin-top:14px}
+.rate .rp{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03);font-size:13px;color:#9aa0ab}
+.rate .rs{color:#FFC83D;letter-spacing:2px}.rate .rp b{color:#fff}
+@media(max-width:520px){.trust.tr1>div{flex-direction:column;gap:4px;text-align:center;padding:12px 4px}.rate .rp{flex-wrap:wrap;justify-content:center}}
 </style>
 </head>
 <body>
@@ -136,8 +149,8 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
           <div class="sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Commande sécurisée · Livraison par WhatsApp</div>
         </div>
         <div class="pay">💳 Paiement après la commande via WhatsApp – par <b>carte</b>, <b>Apple Pay</b>, <b>Google Pay</b> ou <b>virement bancaire</b></div>
-        <div class="trust"><div><b>⚡</b>Activé en 5 min</div><div><b>💬</b>Support 24/7</div><div><b>🛡️</b>Serveurs stables</div></div>
-        <div class="rate"><b>★★★★★ 4,9</b> · 2 384 avis</div>
+        <div class="trust tr1"><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><p><b>5 min</b><span>activation</span></p></div><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2.5" y="13" width="4.5" height="7" rx="2"/><rect x="17" y="13" width="4.5" height="7" rx="2"/></svg><p><b>24/7</b><span>support FR</span></p></div><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><p><b>99,9 %</b><span>serveurs stables</span></p></div></div>
+        <div class="rate"><span class="rp"><span class="rs">★★★★★</span><b>4,9/5</b><span class="rc">· 2 384 avis</span></span></div>
         <a class="wad" id="wad" href="https://wa.me/16615413954" target="_blank" rel="noopener">💬 Je préfère commander sur WhatsApp</a>
         <p class="pnote">Vos données sont utilisées uniquement pour traiter votre commande et peuvent être enregistrées à cette fin avant l'envoi du formulaire.</p>
       </form>
