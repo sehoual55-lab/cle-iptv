@@ -84,7 +84,9 @@
     if (own) return own;
     var cl = card.cloneNode(true), lis = cl.querySelectorAll("li,ul,ol");
     for (var r = 0; r < lis.length; r++) if (lis[r].parentNode) lis[r].parentNode.removeChild(lis[r]);
-    var tm = txt(cl).match(/(\d+)\s*(devices?|screens?|connections?|connexions?|\u00e9crans?|ecrans?|verbindung(en)?|ger\u00e4te?|conexi\u00f3n|conexiones|conex\u00e3o|conex\u00f5es|connessioni|connessione|apparaten|apparaat)\b/i);
+    var tw = document.createTreeWalker(cl, 4), parts = [];
+    while (tw.nextNode()) parts.push(tw.currentNode.nodeValue);
+    var tm = parts.join(" ").replace(/\s+/g, " ").match(/(\d+)\s*(devices?|screens?|connections?|connexions?|\u00e9crans?|ecrans?|verbindung(en)?|ger\u00e4te?|conexi\u00f3n|conexiones|conex\u00e3o|conex\u00f5es|connessioni|connessione|apparaten|apparaat)\b/i);
     if (tm && parseInt(tm[1], 10) <= 10) return parseInt(tm[1], 10);
     return connIn(card, href, [document]) || 1;
   }
