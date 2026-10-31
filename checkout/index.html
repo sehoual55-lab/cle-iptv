@@ -129,6 +129,25 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
 .steps.s1 li.s-done{color:#22c55e;font-weight:700}.steps.s1 li.s-done i{background:#22c55e;border-color:#22c55e;color:#06210f}
 .steps.s1 li.s-cur{color:#fff;font-weight:800}.steps.s1 li.s-cur i{background:linear-gradient(135deg,#18C6C8,#4B7BFF);border:0;color:#fff;box-shadow:0 0 0 5px rgba(24,198,200,.22)}
 @media(max-width:520px){.steps.s1{font-size:11.5px}}
+
+/* P5 spotlight glass */
+.p5card{position:relative;border-radius:20px;padding:2px;overflow:hidden;margin:6px 0 22px;isolation:isolate;z-index:1}
+.p5card::before{content:"";position:absolute;inset:-60%;z-index:-1;background:conic-gradient(from 0deg,#18C6C8,#4B7BFF,transparent 40%,transparent 60%,#18C6C8);animation:p5spin 6s linear infinite}
+@keyframes p5spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.p5card::before{animation:none}}
+.p5in{position:relative;border-radius:18px;background:rgba(14,16,22,.97);padding:18px 18px 20px;color:#fff}
+.p5in .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:#0b0d12;border-radius:12px;padding:4px;margin:0 0 14px;flex-wrap:nowrap}
+.p5in .packs button{border:0;border-radius:9px;background:transparent;color:#7c8290;padding:9px 2px;font-size:13px;font-weight:700;box-shadow:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p5in .packs button:hover{color:#fff;background:rgba(255,255,255,.04)}
+.p5in .packs button.on{background:linear-gradient(135deg,#18C6C8,#4B7BFF);color:#fff;box-shadow:0 0 18px rgba(24,198,200,.35)}
+.p5in .pn{display:none}.p5in .cn{display:none}
+.p5in .du{margin:0 0 10px;font-size:13.5px;color:#c3c7cf}
+.p5r{display:flex;align-items:center;gap:10px;margin-bottom:2px}.p5r s{color:#7c8290;font-size:15px}.p5r em{font-style:normal;font-size:11.5px;font-weight:800;color:#06210f;background:#22c55e;padding:3px 8px;border-radius:6px}
+.p5in .pr .a{font-size:56px}.p5in .pr .d{color:#18C6C8}
+.p5in .pm{margin:8px 0 0}
+.p5c{margin-top:16px}.p5c small{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7c8290;margin-bottom:8px}
+#p5b{display:flex;flex-wrap:wrap;gap:8px}#p5b button{width:40px;height:40px;border-radius:12px;border:0;background:#161922;color:#9aa0ab;font:800 15px var(--body,inherit);cursor:pointer;transition:transform .15s}#p5b button:hover{transform:translateY(-2px)}
+#p5b button.on{background:linear-gradient(135deg,#18C6C8,#4B7BFF);color:#fff}
+@media(max-width:520px){.p5in .packs button{font-size:12px}.p5in .pr .a{font-size:46px}#p5b button{width:36px;height:36px}}
 </style>
 </head>
 <body>
@@ -137,12 +156,12 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
   <aside class="lft" aria-label="Votre offre">
     <div class="wall" id="wall" aria-hidden="true"></div>
     <div><span class="yp">Votre offre</span></div>
-    <div class="packs" id="packs" role="radiogroup" aria-label="Votre offre"></div>
+    <div class="p5card"><div class="p5in"><div class="packs" id="packs" role="radiogroup" aria-label="Votre offre"></div>
     <div class="pn"><h1 id="pname">Gold</h1></div>
     <div class="du" id="pdur"></div>
     <div class="cn"><div><b>Connexions simultanées</b><small>Chaque connexion en plus : -15 %</small></div><button type="button" id="mi" aria-label="−">−</button><em id="cnt">1</em><button type="button" id="pl" aria-label="+">+</button></div>
-    <div class="pr"><span class="c">€</span><span class="a" id="pa">49</span><span class="d" id="pd">,99</span></div>
-    <div class="pm">≈ <b id="pmo">2,78 €</b> par mois · paiement unique, sans engagement</div>
+    <div class="p5r" id="p5r" style="display:none"><s id="p5o"></s><em id="p5d"></em></div><div class="pr"><span class="c">€</span><span class="a" id="pa">49</span><span class="d" id="pd">,99</span></div>
+    <div class="pm">≈ <b id="pmo">2,78 €</b> par mois · paiement unique, sans engagement</div><div class="p5c"><small id="p5l"></small><div id="p5b"></div></div></div></div>
     <ul class="ft" id="feats"></ul>
   </aside>
 
@@ -296,5 +315,5 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
   document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')abSend()});
 })();
 </script>
-</body>
+<script>/* P5 connections + savings */(function(){var $=function(i){return document.getElementById(i)};var cnt=$("cnt"),mi=$("mi"),pl=$("pl"),W=$("p5b");if(!cnt||!pl||!W)return;var F=0.85;var lb=document.querySelector(".cn b");$("p5l").textContent=lb?lb.textContent:"";var st=+cnt.textContent||1,mx=st,g=0;while(!pl.disabled&&g++<12){pl.click();mx=+cnt.textContent}g=0;while(+cnt.textContent>st&&!mi.disabled&&g++<24)mi.click();for(var k=1;k<=mx;k++){var b=document.createElement("button");b.type="button";b.textContent=k;b.setAttribute("data-k",k);b.onclick=function(){var t=+this.getAttribute("data-k"),q=0;while(+cnt.textContent<t&&!pl.disabled&&q++<12)pl.click();while(+cnt.textContent>t&&!mi.disabled&&q++<24)mi.click()};W.appendChild(b)}var cs=document.querySelector(".pr .c"),cur=cs?cs.textContent.trim():"",pre=cs&&cs.compareDocumentPosition($("pa"))&4,sep=($("pd").textContent.trim()[0]===",")?",":".";function fm(v){var s=v.toFixed(2).replace(".",sep);return pre?cur+s:s+" "+cur}function val(){return parseFloat($("pa").textContent.replace(/[^0-9]/g,"")+"."+$("pd").textContent.replace(/[^0-9]/g,""))}function up(){var n=+cnt.textContent||1;[].forEach.call(W.children,function(b){b.classList.toggle("on",+b.getAttribute("data-k")===n)});var r=$("p5r");if(n>1){var t=val(),full=t/(1+F*(n-1))*n;$("p5o").textContent=fm(full);$("p5d").textContent="−"+Math.round((1-t/full)*100)+" %";r.style.display=""}else r.style.display="none"}var o={childList:true,characterData:true,subtree:true};new MutationObserver(up).observe(cnt,o);new MutationObserver(up).observe($("pa"),o);up()})();</script></body>
 </html>
