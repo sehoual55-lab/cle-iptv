@@ -119,6 +119,16 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
 .w1 .wi{width:42px;height:42px;border-radius:11px;background:#25D366;display:grid;place-items:center;flex:none}
 .w1 .wtx{flex:1;line-height:1.3;min-width:0}.w1 .wtx b{display:block;font-size:14.5px;font-weight:700;color:#fff}.w1 .wtx small{font-size:12px;color:#9aa0ab;font-weight:500}
 .w1 .war{color:#25D366;flex:none;display:flex;transition:transform .2s}.wad.w1:hover .war{transform:translateX(3px)}
+
+/* S1 steps */
+.steps.s1{position:relative;display:flex;justify-content:space-between;list-style:none;margin:18px 0 22px;padding:0;gap:0;font-size:12.5px}
+.steps.s1::before{content:"";position:absolute;left:16.66%;right:16.66%;top:17px;height:3px;border-radius:3px;background:rgba(255,255,255,.1)}
+.steps.s1::after{content:"";position:absolute;left:16.66%;width:33.34%;top:17px;height:3px;border-radius:3px;background:linear-gradient(90deg,#22c55e,#18C6C8)}
+.steps.s1 li{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;padding:0;border:0;border-radius:0;background:none;white-space:normal;font-weight:600;color:#6b7280;line-height:1.25}
+.steps.s1 li i{font-style:normal;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:15px;background:#12151c;border:2px solid rgba(255,255,255,.14);color:#6b7280}
+.steps.s1 li.s-done{color:#22c55e;font-weight:700}.steps.s1 li.s-done i{background:#22c55e;border-color:#22c55e;color:#06210f}
+.steps.s1 li.s-cur{color:#fff;font-weight:800}.steps.s1 li.s-cur i{background:linear-gradient(135deg,#18C6C8,#4B7BFF);border:0;color:#fff;box-shadow:0 0 0 5px rgba(24,198,200,.22)}
+@media(max-width:520px){.steps.s1{font-size:11.5px}}
 </style>
 </head>
 <body>
@@ -140,7 +150,7 @@ select.in{appearance:none;-webkit-appearance:none;font-weight:700;cursor:pointer
     <div class="frm" id="box">
       <a class="bk" href="/#tarifs">‹ Retour aux offres</a>
       <form id="f" novalidate>
-        <ol class="steps"><li class="st-ok">✓ Offre</li><li class="st-on">2 · Coordonnées</li><li>3 · WhatsApp</li></ol>
+        <ol class="steps s1"><li class="s-done"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i><span>Offre</span></li><li class="s-cur"><i>2</i><span>Coordonnées</span></li><li><i>3</i><span>WhatsApp</span></li></ol>
         <h2>Finaliser la commande</h2>
         <p class="sub">Entrez votre e-mail et votre numéro WhatsApp – nous vous envoyons votre accès IPTV en quelques minutes.</p>
         <a class="msum" href="#packs">Offre: <b id="msp">Gold</b> · <span id="msc"></span> · <b id="mst"></b><i>modifier ↓</i></a>
