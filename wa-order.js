@@ -80,7 +80,15 @@
     return null;
   }
   function connections(card, href) {
-    var scopes = [card, document];
+    var own = connIn(card, href, [card]);
+    if (own) return own;
+    var cl = card.cloneNode(true), lis = cl.querySelectorAll("li,ul,ol");
+    for (var r = 0; r < lis.length; r++) if (lis[r].parentNode) lis[r].parentNode.removeChild(lis[r]);
+    var tm = txt(cl).match(/(\d+)\s*(devices?|screens?|connections?|connexions?|\u00e9crans?|ecrans?|verbindung(en)?|ger\u00e4te?|conexi\u00f3n|conexiones|conex\u00e3o|conex\u00f5es|connessioni|connessione|apparaten|apparaat)\b/i);
+    if (tm && parseInt(tm[1], 10) <= 10) return parseInt(tm[1], 10);
+    return connIn(card, href, [document]) || 1;
+  }
+  function connIn(card, href, scopes) {
     for (var k = 0; k < scopes.length; k++) {
       var root = scopes[k];
       var s = { querySelector: function (x) { return q(root, card, x); } };
@@ -98,10 +106,7 @@
     }
     var up = param(href, ["conn", "connections", "connexions", "screens", "devices"]);
     if (digit(up)) return digit(up);
-    var cl = card.cloneNode(true), lis = cl.querySelectorAll("li,ul,ol");
-    for (var r = 0; r < lis.length; r++) if (lis[r].parentNode) lis[r].parentNode.removeChild(lis[r]);
-    var tm = txt(cl).match(/(\d+)\s*(devices?|screens?|connections?|connexions?|\u00e9crans?|ecrans?|verbindung(en)?|ger\u00e4te?|conexi\u00f3n|conexiones|conex\u00e3o|conex\u00f5es|connessioni|connessione|apparaten|apparaat)\b/i);
-    return tm ? parseInt(tm[1], 10) : 1;
+    return 0;
   }
 
   function param(href, names) {
