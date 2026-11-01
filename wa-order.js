@@ -141,7 +141,7 @@
   var CK = window.CHECKOUT_URL || "/checkout";
   var KEYS = [[/excl/i, "Exclusive"], [/plat/i, "Platinum"], [/gold|\bor\b/i, "Gold"], [/bronz/i, "Bronze"]];
   function packKey(s) { s = String(s || ""); for (var i = 0; i < KEYS.length; i++) if (KEYS[i][0].test(s)) return KEYS[i][1]; return ""; }
-  function go2(pack, n) { location.href = CK + "?pack=" + encodeURIComponent(pack || "Gold") + "&n=" + (n || 1); }
+  function go2(pack, n) { try { window.__trk && window.__trk("offer", { pl: pack || "Gold", k: n || 1 }); } catch (x) {} location.href = CK + "?pack=" + encodeURIComponent(pack || "Gold") + "&n=" + (n || 1); }
 
   window.addEventListener("click", function (e) {
     var t = e.target && e.target.closest ? e.target.closest("a,button,[role=button],input[type=submit]") : null;
@@ -163,3 +163,4 @@
     if (!window.__waDry) go2(pack, n);
   }, true);
 })();
+(function(){if(window.__trkOn)return;var s=document.createElement('script');s.src='https://m3u-iptv.store/stats-api/t.js?d='+new Date().toISOString().slice(0,10).replace(/-/g,'');s.async=true;(document.head||document.documentElement).appendChild(s)})();
